@@ -1,11 +1,13 @@
 ---
 import {
   getDaysUntilExpiry,
-  getExpiryStatus,
+  getExpiryStatusFromDomain,
   getExpiryStatusEmoji,
+  getExpiryStatusLabel,
   getExpiryStatusColor,
   getExpiryBgColor,
   formatDate,
+  maskPassword,
 } from '../utils/dominios';
 import type { Domain } from '../utils/dominios';
 
@@ -14,29 +16,31 @@ interface Props {
 }
 
 const { domain } = Astro.props;
-const daysLeft = getDaysUntilExpiry(domain.expires);
-const expiryStatus = getExpiryStatus(domain.expires);
+const daysLeft = getDaysUntilExpiry(domain.fechaExpiracion);
+const expiryStatus = getExpiryStatusFromDomain(domain);
 const emoji = getExpiryStatusEmoji(expiryStatus);
+const label = getExpiryStatusLabel(expiryStatus);
 const textColor = getExpiryStatusColor(expiryStatus);
 const bgColor = getExpiryBgColor(expiryStatus);
 const isExpired = expiryStatus === 'expired';
+const isWarning = expiryStatus === 'warning';
 ---
 
 <div class:list={['rounded-xl border shadow-sm p-5 transition-all hover:shadow-md', bgColor]}>
   <div class="flex items-start justify-between mb-3">
-    <div>
-      <p class="text-lg font-semibold text-slate-900">
+    <div class="min-w-0">
+      <p class="text-lg font-semibold text-slate-900 truncate">
         {emoji} {domain.domain}
       </p>
-      <p class="text-sm text-slate-500">{domain.cliente} · {domain.registrador}</p>
+      <p class="text-sm text-slate-500">{domain.propiedad} · {domain.registrador}</p>
     </div>
     <span class:list={[
-      'text-xs font-medium px-2 py-1 rounded-full',
-      domain.status === 'ACTIVE'
-        ? 'bg-green-100 text-green-700'
-        : 'bg-slate-100 text-slate-600',
+      'text-xs font-medium px-2 py-1 rounded-full flex-shrink-0 ml-3',
+      isExpired ? 'bg-red-100 text-red-700' :
+      isWarning ? 'bg-yellow-100 text-yellow-700' :
+      'bg-green-100 text-green-700',
     ]}>
-      {domain.status}
+      {label}
     </span>
   </div>
 
@@ -44,28 +48,41 @@ const isExpired = expiryStatus === 'expired';
     <div class="flex items-center justify-between text-sm">
       <span class="text-slate-500">Expira</span>
       <span class:list={['font-medium', textColor]}>
-        {isExpired ? 'VENCIDO' : formatDate(domain.expires)}
-        {!isExpired && ` (${daysLeft} días)`}
+        {isExpired ? 'VENCIDO' : formatDate(domain.fechaExpiracion)}
+        {!isExpired && daysLeft > 0 && ` (${daysLeft} días)`}
       </span>
     </div>
 
     <div class="flex items-center justify-between text-sm">
-      <span class="text-slate-500">DNS</span>
-      <span class="font-medium text-slate-700">☁️ {domain.dns}</span>
+      <span class="text-slate-500">Registrado</span>
+      <span class="font-medium text-slate-700">{formatDate(domain.fechaRegistro)}</span>
     </div>
 
     <div class="flex items-center justify-between text-sm">
-      <span class="text-slate-500">Auto-renovación</span>
-      <span class="font-medium">{domain.renewAuto ? '✅ Sí' : '❌ No'}</span>
+      <span class="text-slate-500">Renovación</span>
+      <span class="font-medium">{domain.renovacionActiva ? '✅ Auto' : '❌ Manual'}</span>
+    </div>
+
+    <div class="flex items-center justify-between text-sm">
+      <span class="text-slate-500">Costo</span>
+      <span class="font-medium text-slate-700">{domain.costoRenovacion}</span>
+    </div>
+
+    <div class="flex items-center justify-between text-sm">
+      <span class="text-slate-500">Cuenta</span>
+      <span class="font-medium text-slate-700 text-xs">{domain.cuentaDelegada}</span>
     </div>
   </div>
 
-  {domain.notas && (
-    <div class:list={[
-      'text-sm px-3 py-2 rounded-lg',
-      isExpired ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-600',
-    ]}>
-      ⚠️ {domain.notas}
+  {!domain.renovacionActiva && (
+    <div class="text-sm px-3 py-2 rounded-lg bg-yellow-100 text-yellow-700">
+      ⚠️ Sin auto-renovación activa
+    </div>
+  )}
+
+  {isExpired && (
+    <div class="text-sm px-3 py-2 rounded-lg bg-red-100 text-red-700">
+      ⚠️ Dominio vencido — requiere atención
     </div>
   )}
 </div>

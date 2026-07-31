@@ -1,7 +1,7 @@
 ---
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
 import DomainCard from '../../components/DomainCard.astro';
-import { getAllDomains, getDomainMetrics, getExpiryStatus } from '../../utils/dominios';
+import { getAllDomains, getDomainMetrics, getExpiryStatusFromDomain } from '../../utils/dominios';
 
 const domains = getAllDomains();
 const metrics = getDomainMetrics();
@@ -19,16 +19,16 @@ const metrics = getDomainMetrics();
       <p class="text-3xl font-bold text-slate-900">{metrics.total}</p>
     </div>
     <div class="bg-green-50 rounded-xl border border-green-200 shadow-sm p-5">
-      <p class="text-sm font-medium text-slate-500 mb-1">Activos</p>
-      <p class="text-3xl font-bold text-green-600">{metrics.active}</p>
+      <p class="text-sm font-medium text-slate-500 mb-1">Vigentes</p>
+      <p class="text-3xl font-bold text-green-600">{metrics.vigentes}</p>
     </div>
     <div class="bg-yellow-50 rounded-xl border border-yellow-200 shadow-sm p-5">
       <p class="text-sm font-medium text-slate-500 mb-1">Por vencer</p>
-      <p class="text-3xl font-bold text-yellow-600">{metrics.expiring}</p>
+      <p class="text-3xl font-bold text-yellow-600">{metrics.porVencer}</p>
     </div>
     <div class="bg-red-50 rounded-xl border border-red-200 shadow-sm p-5">
       <p class="text-sm font-medium text-slate-500 mb-1">Vencidos</p>
-      <p class="text-3xl font-bold text-red-500">{metrics.expired}</p>
+      <p class="text-3xl font-bold text-red-500">{metrics.vencidos}</p>
     </div>
   </div>
 
@@ -36,7 +36,7 @@ const metrics = getDomainMetrics();
     <input
       type="text"
       id="domain-search"
-      placeholder="Buscar por dominio o cliente..."
+      placeholder="Buscar por dominio o propiedad..."
       class="w-full sm:w-80 px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-shadow"
     />
   </div>
@@ -45,15 +45,15 @@ const metrics = getDomainMetrics();
     {domains
       .sort((a, b) => {
         const statusOrder = { expired: 0, warning: 1, ok: 2 };
-        const sa = statusOrder[getExpiryStatus(a.expires)];
-        const sb = statusOrder[getExpiryStatus(b.expires)];
+        const sa = statusOrder[getExpiryStatusFromDomain(a)];
+        const sb = statusOrder[getExpiryStatusFromDomain(b)];
         return sa - sb;
       })
       .map(domain => (
         <div
           class="domain-card"
           data-domain={domain.domain.toLowerCase()}
-          data-cliente={domain.cliente.toLowerCase()}
+          data-propiedad={domain.propiedad.toLowerCase()}
         >
           <DomainCard domain={domain} />
         </div>
@@ -75,8 +75,8 @@ const metrics = getDomainMetrics();
 
     cards.forEach(card => {
       const domain = card.getAttribute('data-domain') || '';
-      const cliente = card.getAttribute('data-cliente') || '';
-      const matches = !query || domain.includes(query) || cliente.includes(query);
+      const propiedad = card.getAttribute('data-propiedad') || '';
+      const matches = !query || domain.includes(query) || propiedad.includes(query);
       (card as HTMLElement).style.display = matches ? '' : 'none';
       if (matches) visibleCount++;
     });

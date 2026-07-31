@@ -2,18 +2,16 @@ import dominiosData from '../data/dominios.json';
 
 export interface Domain {
   domain: string;
-  cliente: string;
   registrador: string;
-  expires: string;
-  renewAuto: boolean;
-  dns: string;
-  status: string;
-  locked: boolean;
-  privacy: boolean;
-  nameServers: string[];
-  createdAt: string;
-  expirationProtected: boolean;
-  notas: string;
+  propiedad: string;
+  renovacionActiva: boolean;
+  fechaRegistro: string;
+  fechaExpiracion: string;
+  estadoExpiracion: string;
+  usuario: string;
+  contraseña: string;
+  cuentaDelegada: string;
+  costoRenovacion: string;
 }
 
 export type ExpiryStatus = 'ok' | 'warning' | 'expired';
@@ -24,17 +22,27 @@ export function getAllDomains(): Domain[] {
   return allDomains;
 }
 
-export function getDaysUntilExpiry(expires: string): number {
+export function getDaysUntilExpiry(fechaExpiracion: string): number {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const expiry = new Date(expires);
+  const expiry = new Date(fechaExpiracion);
   expiry.setHours(0, 0, 0, 0);
   const diff = expiry.getTime() - today.getTime();
   return Math.ceil(diff / (1000 * 60 * 60 * 24));
 }
 
-export function getExpiryStatus(expires: string): ExpiryStatus {
-  const days = getDaysUntilExpiry(expires);
+export function getExpiryStatus(estadoExpiracion: string): ExpiryStatus {
+  const estado = estadoExpiracion.toUpperCase();
+  if (estado === 'VENCIDO' || estado === 'EXPIRADO') return 'expired';
+  if (estado === 'POR VENCER') return 'warning';
+  return 'ok';
+}
+
+export function getExpiryStatusFromDomain(domain: Domain): ExpiryStatus {
+  const status = getExpiryStatus(domain.estadoExpiracion);
+  if (status !== 'ok') return status;
+
+  const days = getDaysUntilExpiry(domain.fechaExpiracion);
   if (days <= 0) return 'expired';
   if (days <= 90) return 'warning';
   return 'ok';
@@ -44,6 +52,12 @@ export function getExpiryStatusEmoji(status: ExpiryStatus): string {
   if (status === 'expired') return '🔴';
   if (status === 'warning') return '🟡';
   return '🟢';
+}
+
+export function getExpiryStatusLabel(status: ExpiryStatus): string {
+  if (status === 'expired') return 'VENCIDO';
+  if (status === 'warning') return 'POR VENCER';
+  return 'VIGENTE';
 }
 
 export function getExpiryStatusColor(status: ExpiryStatus): string {
@@ -67,15 +81,17 @@ export function formatDate(dateString: string): string {
   });
 }
 
+export function maskPassword(contraseña: string): string {
+  if (!contraseña || contraseña === '••••••••') return '••••••••';
+  return '•••' + contraseña.slice(-3);
+}
+
 export function getDomainMetrics() {
   const domains = allDomains;
   const total = domains.length;
-  const active = domains.filter(d => d.status === 'ACTIVE').length;
-  const expiring = domains.filter(d => {
-    const status = getExpiryStatus(d.expires);
-    return status === 'warning';
-  }).length;
-  const expired = domains.filter(d => getExpiryStatus(d.expires) === 'expired').length;
+  const vigentes = domains.filter(d => getExpiryStatusFromDomain(d) === 'ok').length;
+  const porVencer = domains.filter(d => getExpiryStatusFromDomain(d) === 'warning').length;
+  const vencidos = domains.filter(d => getExpiryStatusFromDomain(d) === 'expired').length;
 
-  return { total, active, expiring, expired };
+  return { total, vigentes, porVencer, vencidos };
 }
