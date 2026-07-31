@@ -1,17 +1,79 @@
 {
   "slug": "clientesaldia",
-  "lastRun": "2026-07-30T10:15:00Z",
-  "duration": 3400,
+  "lastRun": "2026-07-31T20:06:44.161Z",
+  "duration": 142,
   "tests": [
-    { "name": "Homepage responde HTTP 200", "status": "pass", "duration": 567 },
-    { "name": "Página /servicios accesible", "status": "pass", "duration": 432 },
-    { "name": "Formulario de contacto funciona", "status": "pass", "duration": 234 },
-    { "name": "Meta description presente en homepage", "status": "pass", "duration": 98 },
-    { "name": "Título H1 único por página", "status": "pass", "duration": 156 },
-    { "name": "Imágenes con atributo alt", "status": "fail", "duration": 312, "error": "5 imágenes sin atributo alt en /galeria" },
-    { "name": "SSL funciona correctamente", "status": "pass", "duration": 123 },
-    { "name": "Sitemap XML accesible", "status": "fail", "duration": 456, "error": "Sitemap devuelve 404" },
-    { "name": "robots.txt configurado", "status": "pass", "duration": 89 },
-    { "name": "Tiempo de carga < 3 segundos", "status": "pass", "duration": 678 }
+    {
+      "name": "Homepage responde HTTP 200",
+      "status": "fail",
+      "duration": 111,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Tiempo de carga < 3 segundos",
+      "status": "fail",
+      "duration": 4,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Título de página presente",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Meta description presente",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Open Graph tags presentes",
+      "status": "fail",
+      "duration": 3,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "SSL / HTTPS funciona",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Sitemap XML accesible",
+      "status": "fail",
+      "duration": 5,
+      "error": "No encontrado (sitemap: 0, wp-sitemap: 0)"
+    },
+    {
+      "name": "robots.txt configurado",
+      "status": "fail",
+      "duration": 4,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "URL raíz sin redirección innecesaria",
+      "status": "fail",
+      "duration": 3,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Meta viewport presente (responsive)",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Etiqueta H1 presente",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    },
+    {
+      "name": "Charset UTF-8 configurado",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND clientesaldia.com"
+    }
   ]
 }

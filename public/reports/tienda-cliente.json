@@ -1,19 +1,79 @@
 {
   "slug": "tienda-cliente",
-  "lastRun": "2026-07-29T16:45:00Z",
-  "duration": 5100,
+  "lastRun": "2026-07-31T20:06:44.885Z",
+  "duration": 684,
   "tests": [
-    { "name": "Homepage responde HTTP 200", "status": "pass", "duration": 890 },
-    { "name": "Página /productos accesible", "status": "fail", "duration": 1200, "error": "Error 500 en /productos - posible conflicto de plugin" },
-    { "name": "Carrito de compras funcional", "status": "fail", "duration": 567, "error": "Botón 'Agregar al carrito' no responde en mobile" },
-    { "name": "Meta description presente en homepage", "status": "pass", "duration": 123 },
-    { "name": "Título H1 único por página", "status": "fail", "duration": 178, "error": "Múltiples H1 detectados en homepage" },
-    { "name": "Imágenes con atributo alt", "status": "fail", "duration": 445, "error": "12 imágenes sin alt en /productos" },
-    { "name": "SSL funciona correctamente", "status": "pass", "duration": 156 },
-    { "name": "Sitemap XML accesible", "status": "pass", "duration": 134 },
-    { "name": "Checkout proceso completo", "status": "fail", "duration": 890, "error": "Página de pago redirige a error 404" },
-    { "name": "Tiempo de carga < 3 segundos", "status": "fail", "duration": 5100, "error": "Tiempo de carga: 5.1s - excede el límite" },
-    { "name": "Open Graph tags presentes", "status": "fail", "duration": 98, "error": "Falta og:image en todas las páginas" },
-    { "name": "Schema markup válido", "status": "pass", "duration": 234 }
+    {
+      "name": "Homepage responde HTTP 200",
+      "status": "fail",
+      "duration": 651,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Tiempo de carga < 3 segundos",
+      "status": "fail",
+      "duration": 4,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Título de página presente",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Meta description presente",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Open Graph tags presentes",
+      "status": "fail",
+      "duration": 3,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "SSL / HTTPS funciona",
+      "status": "fail",
+      "duration": 3,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Sitemap XML accesible",
+      "status": "fail",
+      "duration": 5,
+      "error": "No encontrado (sitemap: 0, wp-sitemap: 0)"
+    },
+    {
+      "name": "robots.txt configurado",
+      "status": "fail",
+      "duration": 5,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "URL raíz sin redirección innecesaria",
+      "status": "fail",
+      "duration": 3,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Meta viewport presente (responsive)",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Etiqueta H1 presente",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    },
+    {
+      "name": "Charset UTF-8 configurado",
+      "status": "fail",
+      "duration": 2,
+      "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
+    }
   ]
 }

@@ -1,44 +1,44 @@
 {
   "slug": "jersey-canna",
-  "lastRun": "2026-07-31T19:54:00.383Z",
-  "duration": 6243,
+  "lastRun": "2026-07-31T20:06:43.976Z",
+  "duration": 5856,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1143
+      "duration": 1152
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 695
+      "duration": 742
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 440
+      "duration": 339
     },
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 444,
+      "duration": 437,
       "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 437,
+      "duration": 450,
       "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 442
+      "duration": 329
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 484,
+      "duration": 495,
       "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
     },
     {
@@ -54,13 +54,13 @@
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 445,
+      "duration": 317,
       "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 434
+      "duration": 316
     },
     {
       "name": "Charset UTF-8 configurado",
