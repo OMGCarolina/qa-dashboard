@@ -1,0 +1,68 @@
+{
+  "slug": "cosmopolitaderma",
+  "lastRun": "2026-07-31T21:22:28.643Z",
+  "duration": 14629,
+  "tests": [
+    {
+      "name": "Homepage responde HTTP 200",
+      "status": "pass",
+      "duration": 1606
+    },
+    {
+      "name": "Tiempo de carga < 3 segundos",
+      "status": "pass",
+      "duration": 1353
+    },
+    {
+      "name": "Título de página presente",
+      "status": "pass",
+      "duration": 1334
+    },
+    {
+      "name": "Meta description presente",
+      "status": "pass",
+      "duration": 1358
+    },
+    {
+      "name": "Open Graph tags presentes",
+      "status": "pass",
+      "duration": 1351
+    },
+    {
+      "name": "SSL / HTTPS funciona",
+      "status": "pass",
+      "duration": 1375
+    },
+    {
+      "name": "Sitemap XML accesible",
+      "status": "fail",
+      "duration": 564,
+      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+    },
+    {
+      "name": "robots.txt configurado",
+      "status": "pass",
+      "duration": 287
+    },
+    {
+      "name": "URL raíz sin redirección innecesaria",
+      "status": "pass",
+      "duration": 1352
+    },
+    {
+      "name": "Meta viewport presente (responsive)",
+      "status": "pass",
+      "duration": 1359
+    },
+    {
+      "name": "Etiqueta H1 presente",
+      "status": "pass",
+      "duration": 1346
+    },
+    {
+      "name": "Charset UTF-8 configurado",
+      "status": "pass",
+      "duration": 1344
+    }
+  ]
+}
