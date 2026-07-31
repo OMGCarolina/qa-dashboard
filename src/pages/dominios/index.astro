@@ -1,0 +1,88 @@
+---
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import DomainCard from '../../components/DomainCard.astro';
+import { getAllDomains, getDomainMetrics, getExpiryStatus } from '../../utils/dominios';
+
+const domains = getAllDomains();
+const metrics = getDomainMetrics();
+---
+
+<DashboardLayout title="Dominios">
+  <div class="mb-8">
+    <h1 class="text-2xl font-bold text-slate-900 mb-1">Dominios</h1>
+    <p class="text-slate-500">{metrics.total} dominios registrados</p>
+  </div>
+
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
+      <p class="text-sm font-medium text-slate-500 mb-1">Total</p>
+      <p class="text-3xl font-bold text-slate-900">{metrics.total}</p>
+    </div>
+    <div class="bg-green-50 rounded-xl border border-green-200 shadow-sm p-5">
+      <p class="text-sm font-medium text-slate-500 mb-1">Activos</p>
+      <p class="text-3xl font-bold text-green-600">{metrics.active}</p>
+    </div>
+    <div class="bg-yellow-50 rounded-xl border border-yellow-200 shadow-sm p-5">
+      <p class="text-sm font-medium text-slate-500 mb-1">Por vencer</p>
+      <p class="text-3xl font-bold text-yellow-600">{metrics.expiring}</p>
+    </div>
+    <div class="bg-red-50 rounded-xl border border-red-200 shadow-sm p-5">
+      <p class="text-sm font-medium text-slate-500 mb-1">Vencidos</p>
+      <p class="text-3xl font-bold text-red-500">{metrics.expired}</p>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <input
+      type="text"
+      id="domain-search"
+      placeholder="Buscar por dominio o cliente..."
+      class="w-full sm:w-80 px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-shadow"
+    />
+  </div>
+
+  <div id="domains-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {domains
+      .sort((a, b) => {
+        const statusOrder = { expired: 0, warning: 1, ok: 2 };
+        const sa = statusOrder[getExpiryStatus(a.expires)];
+        const sb = statusOrder[getExpiryStatus(b.expires)];
+        return sa - sb;
+      })
+      .map(domain => (
+        <div
+          class="domain-card"
+          data-domain={domain.domain.toLowerCase()}
+          data-cliente={domain.cliente.toLowerCase()}
+        >
+          <DomainCard domain={domain} />
+        </div>
+      ))}
+  </div>
+  <p id="no-results" class="hidden text-center text-slate-500 py-12">
+    No se encontraron dominios con ese criterio.
+  </p>
+</DashboardLayout>
+
+<script>
+  const searchInput = document.getElementById('domain-search') as HTMLInputElement;
+  const cards = document.querySelectorAll('.domain-card');
+  const noResults = document.getElementById('no-results');
+
+  searchInput?.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const domain = card.getAttribute('data-domain') || '';
+      const cliente = card.getAttribute('data-cliente') || '';
+      const matches = !query || domain.includes(query) || cliente.includes(query);
+      (card as HTMLElement).style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+
+    if (noResults) {
+      noResults.classList.toggle('hidden', visibleCount > 0);
+    }
+  });
+</script>

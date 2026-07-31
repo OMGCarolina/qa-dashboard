@@ -1,0 +1,62 @@
+[
+  {
+    "domain": "jersey-canna.com",
+    "cliente": "Jersey Canna",
+    "registrador": "GoDaddy",
+    "expires": "2027-03-15",
+    "renewAuto": true,
+    "dns": "Cloudflare",
+    "status": "ACTIVE",
+    "locked": true,
+    "privacy": true,
+    "nameServers": ["ns1.cloudflare.com", "ns2.cloudflare.com"],
+    "createdAt": "2024-03-15",
+    "expirationProtected": false,
+    "notas": ""
+  },
+  {
+    "domain": "jerseyleaf.net",
+    "cliente": "Jersey Leaf",
+    "registrador": "GoDaddy",
+    "expires": "2027-06-01",
+    "renewAuto": true,
+    "dns": "Cloudflare",
+    "status": "ACTIVE",
+    "locked": true,
+    "privacy": true,
+    "nameServers": ["ns1.cloudflare.com", "ns2.cloudflare.com"],
+    "createdAt": "2024-06-01",
+    "expirationProtected": false,
+    "notas": ""
+  },
+  {
+    "domain": "cosmopolitaderma.com",
+    "cliente": "Cosmopolita Derma",
+    "registrador": "GoDaddy",
+    "expires": "2026-10-20",
+    "renewAuto": false,
+    "dns": "Cloudflare",
+    "status": "ACTIVE",
+    "locked": false,
+    "privacy": true,
+    "nameServers": ["ns1.cloudflare.com", "ns2.cloudflare.com"],
+    "createdAt": "2025-01-10",
+    "expirationProtected": false,
+    "notas": "Sin auto-renovación"
+  },
+  {
+    "domain": "onemarketingroup.com",
+    "cliente": "Onemarketing Group",
+    "registrador": "GoDaddy",
+    "expires": "2025-06-15",
+    "renewAuto": true,
+    "dns": "Cloudflare",
+    "status": "ACTIVE",
+    "locked": true,
+    "privacy": true,
+    "nameServers": ["ns1.cloudflare.com", "ns2.cloudflare.com"],
+    "createdAt": "2023-06-15",
+    "expirationProtected": true,
+    "notas": "VENCIDO"
+  }
+]
