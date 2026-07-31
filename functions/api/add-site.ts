@@ -1,5 +1,3 @@
-import type { Context } from "@netlify/functions";
-
 interface AddSiteBody {
   name: string;
   url: string;
@@ -14,6 +12,11 @@ interface SiteEntry {
   addedAt: string;
 }
 
+interface Env {
+  GITHUB_TOKEN: string;
+  GITHUB_REPO: string;
+}
+
 function generateSlug(name: string): string {
   return name
     .toLowerCase()
@@ -25,8 +28,8 @@ function generateSlug(name: string): string {
 
 const GITHUB_API = "https://api.github.com";
 
-async function getFile(repo: string, path: string, token: string) {
-  const res = await fetch(`${GITHUB_API}/repos/${repo}/contents/${path}`, {
+async function getFile(repo: string, filePath: string, token: string) {
+  const res = await fetch(`${GITHUB_API}/repos/${repo}/contents/${filePath}`, {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github.v3+json",
@@ -38,12 +41,12 @@ async function getFile(repo: string, path: string, token: string) {
     throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
   }
 
-  return res.json();
+  return res.json() as Promise<{ sha: string; content: string }>;
 }
 
 async function commitFile(
   repo: string,
-  path: string,
+  filePath: string,
   content: string,
   message: string,
   token: string,
@@ -51,14 +54,14 @@ async function commitFile(
 ) {
   const body: Record<string, unknown> = {
     message,
-    content: Buffer.from(content).toString("base64"),
+    content: btoa(content),
   };
 
   if (sha) {
     body.sha = sha;
   }
 
-  const res = await fetch(`${GITHUB_API}/repos/${repo}/contents/${path}`, {
+  const res = await fetch(`${GITHUB_API}/repos/${repo}/contents/${filePath}`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -77,16 +80,10 @@ async function commitFile(
   return res.json();
 }
 
-export default async (req: Request, _context: Context) => {
-  if (req.method !== "POST") {
-    return new Response(JSON.stringify({ error: "Method not allowed" }), {
-      status: 405,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  const token = Netlify.env.get("GITHUB_TOKEN");
-  const repo = Netlify.env.get("GITHUB_REPO");
+export const onRequestPost: PagesFunction<Env> = async (context) => {
+  const { request, env } = context;
+  const token = env.GITHUB_TOKEN;
+  const repo = env.GITHUB_REPO;
 
   if (!token || !repo) {
     return new Response(
@@ -96,7 +93,7 @@ export default async (req: Request, _context: Context) => {
   }
 
   try {
-    const body: AddSiteBody = await req.json();
+    const body: AddSiteBody = await request.json();
 
     if (!body.name?.trim()) {
       return new Response(JSON.stringify({ error: "Nombre es requerido" }), {
@@ -125,9 +122,7 @@ export default async (req: Request, _context: Context) => {
 
     const fileData = await getFile(repo, "public/sites.json", token);
     const currentSha = fileData.sha;
-    const sites: SiteEntry[] = JSON.parse(
-      Buffer.from(fileData.content, "base64").toString("utf-8")
-    );
+    const sites: SiteEntry[] = JSON.parse(atob(fileData.content));
 
     if (sites.some((s) => s.slug === slug)) {
       return new Response(
@@ -167,8 +162,4 @@ export default async (req: Request, _context: Context) => {
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
-};
-
-export const config = {
-  path: "/api/add-site",
 };
