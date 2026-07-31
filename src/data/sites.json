@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "jersey-canna",
+    "name": "Jersey Canna",
+    "url": "https://jersey-canna.com",
+    "description": "Tienda online de ropa streetwear y cannabis lifestyle",
+    "addedAt": "2026-07-28T10:00:00Z"
+  },
+  {
+    "slug": "clientesaldia",
+    "name": "Clientes Al Día",
+    "url": "https://clientesaldia.com",
+    "description": "Portal de gestión de clientes y facturación para PyMEs",
+    "addedAt": "2026-07-29T10:00:00Z"
+  },
+  {
+    "slug": "tienda-cliente",
+    "name": "Tienda Cliente",
+    "url": "https://tienda.cliente.com",
+    "description": "E-commerce WordPress con WooCommerce para tienda de electrónica",
+    "addedAt": "2026-07-29T14:00:00Z"
+  }
+]

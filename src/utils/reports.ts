@@ -1,5 +1,7 @@
-import fs from 'fs';
-import path from 'path';
+import sitesData from '../data/sites.json';
+import reportJerseyCanna from '../data/reports/jersey-canna.json';
+import reportClientesaldia from '../data/reports/clientesaldia.json';
+import reportTiendaCliente from '../data/reports/tienda-cliente.json';
 
 export interface TestResult {
   name: string;
@@ -30,39 +32,36 @@ export interface GlobalMetrics {
 
 export type StatusLevel = 'green' | 'yellow' | 'red' | 'pending';
 
-const publicDir = path.resolve('./public');
-
-function loadSites(): Array<{ slug: string; name: string; url: string; description?: string; addedAt: string }> {
-  const sitesPath = path.join(publicDir, 'sites.json');
-  if (!fs.existsSync(sitesPath)) return [];
-  return JSON.parse(fs.readFileSync(sitesPath, 'utf-8'));
+interface SiteEntry {
+  slug: string;
+  name: string;
+  url: string;
+  description?: string;
+  addedAt: string;
 }
 
-function loadReports(): Map<string, { lastRun: string; duration: number; tests: TestResult[] }> {
-  const reportsDir = path.join(publicDir, 'reports');
-  const map = new Map();
+interface ReportData {
+  slug: string;
+  lastRun: string;
+  duration: number;
+  tests: TestResult[];
+}
 
-  if (!fs.existsSync(reportsDir)) return map;
+const allSites: SiteEntry[] = sitesData as SiteEntry[];
 
-  const files = fs.readdirSync(reportsDir).filter(f => f.endsWith('.json'));
-  for (const file of files) {
-    const data = JSON.parse(fs.readFileSync(path.join(reportsDir, file), 'utf-8'));
-    map.set(data.slug, {
-      lastRun: data.lastRun,
-      duration: data.duration,
-      tests: data.tests,
-    });
-  }
-
-  return map;
+const reportsMap = new Map<string, ReportData>();
+const reportFiles: ReportData[] = [
+  reportJerseyCanna as ReportData,
+  reportClientesaldia as ReportData,
+  reportTiendaCliente as ReportData,
+];
+for (const report of reportFiles) {
+  reportsMap.set(report.slug, report);
 }
 
 function mergeData(): SiteReport[] {
-  const sites = loadSites();
-  const reports = loadReports();
-
-  return sites.map(site => {
-    const report = reports.get(site.slug);
+  return allSites.map(site => {
+    const report = reportsMap.get(site.slug);
 
     if (report) {
       return {

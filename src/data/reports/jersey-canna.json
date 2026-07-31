@@ -1,0 +1,19 @@
+{
+  "slug": "jersey-canna",
+  "lastRun": "2026-07-31T14:30:00Z",
+  "duration": 1200,
+  "tests": [
+    { "name": "Homepage responde HTTP 200", "status": "pass", "duration": 342 },
+    { "name": "Página /tienda accesible", "status": "pass", "duration": 287 },
+    { "name": "Formulario de contacto funciona", "status": "pass", "duration": 156 },
+    { "name": "Meta description presente en homepage", "status": "fail", "duration": 89, "error": "Meta description tag no encontrado en el HTML" },
+    { "name": "Título H1 único por página", "status": "pass", "duration": 134 },
+    { "name": "Imágenes con atributo alt", "status": "fail", "duration": 201, "error": "3 imágenes sin atributo alt en /tienda" },
+    { "name": "SSL funciona correctamente", "status": "pass", "duration": 98 },
+    { "name": "Sitemap XML accesible", "status": "pass", "duration": 112 },
+    { "name": "robots.txt configurado", "status": "pass", "duration": 76 },
+    { "name": "Tiempo de carga < 3 segundos", "status": "pass", "duration": 445 },
+    { "name": "Open Graph tags presentes", "status": "pass", "duration": 67 },
+    { "name": "Schema markup válido", "status": "pass", "duration": 189 }
+  ]
+}
