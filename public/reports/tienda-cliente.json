@@ -1,12 +1,12 @@
 {
   "slug": "tienda-cliente",
-  "lastRun": "2026-07-31T21:21:25.534Z",
-  "duration": 620,
+  "lastRun": "2026-07-31T21:22:40.086Z",
+  "duration": 53,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "fail",
-      "duration": 587,
+      "duration": 17,
       "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
     },
     {
@@ -18,7 +18,7 @@
     {
       "name": "Título de página presente",
       "status": "fail",
-      "duration": 2,
+      "duration": 3,
       "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
     },
     {
@@ -30,7 +30,7 @@
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 3,
+      "duration": 4,
       "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
     },
     {
@@ -42,25 +42,25 @@
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 6,
+      "duration": 7,
       "error": "No encontrado (sitemap: 0, wp-sitemap: 0)"
     },
     {
       "name": "robots.txt configurado",
       "status": "fail",
-      "duration": 5,
+      "duration": 4,
       "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "fail",
-      "duration": 3,
+      "duration": 2,
       "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 2,
+      "duration": 3,
       "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
     },
     {
@@ -72,7 +72,7 @@
     {
       "name": "Charset UTF-8 configurado",
       "status": "fail",
-      "duration": 1,
+      "duration": 2,
       "error": "getaddrinfo ENOTFOUND tienda.cliente.com"
     }
   ]

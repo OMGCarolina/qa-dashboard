@@ -1,12 +1,12 @@
 {
   "slug": "clientesaldia",
-  "lastRun": "2026-07-31T21:21:24.873Z",
-  "duration": 164,
+  "lastRun": "2026-07-31T21:22:39.993Z",
+  "duration": 48,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "fail",
-      "duration": 131,
+      "duration": 16,
       "error": "getaddrinfo ENOTFOUND clientesaldia.com"
     },
     {
@@ -24,13 +24,13 @@
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 2,
+      "duration": 3,
       "error": "getaddrinfo ENOTFOUND clientesaldia.com"
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 4,
+      "duration": 3,
       "error": "getaddrinfo ENOTFOUND clientesaldia.com"
     },
     {
@@ -42,7 +42,7 @@
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 5,
+      "duration": 4,
       "error": "No encontrado (sitemap: 0, wp-sitemap: 0)"
     },
     {
