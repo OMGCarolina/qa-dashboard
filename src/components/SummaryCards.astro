@@ -1,0 +1,50 @@
+---
+import { getStatusLevel, getStatusEmoji } from '../utils/reports';
+
+interface Props {
+  totalSites: number;
+  totalTests: number;
+  passRate: number;
+  failures: number;
+}
+
+const { totalSites, totalTests, passRate, failures } = Astro.props;
+const statusLevel = getStatusLevel(passRate);
+const emoji = getStatusEmoji(statusLevel);
+
+const statusColorMap = {
+  green: 'text-green-600',
+  yellow: 'text-yellow-500',
+  red: 'text-red-500',
+};
+
+const statusBgMap = {
+  green: 'bg-green-50 border-green-200',
+  yellow: 'bg-yellow-50 border-yellow-200',
+  red: 'bg-red-50 border-red-200',
+};
+---
+
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+  <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
+    <p class="text-sm font-medium text-slate-500 mb-1">Sitios monitoreados</p>
+    <p class="text-3xl font-bold text-slate-900">{totalSites}</p>
+  </div>
+
+  <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
+    <p class="text-sm font-medium text-slate-500 mb-1">Tests totales</p>
+    <p class="text-3xl font-bold text-slate-900">{totalTests}</p>
+  </div>
+
+  <div class:list={['rounded-xl border shadow-sm p-5', statusBgMap[statusLevel]]}>
+    <p class="text-sm font-medium text-slate-500 mb-1">Tasa de éxito</p>
+    <p class:list={['text-3xl font-bold', statusColorMap[statusLevel]]}>
+      {emoji} {passRate}%
+    </p>
+  </div>
+
+  <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
+    <p class="text-sm font-medium text-slate-500 mb-1">Fallos</p>
+    <p class="text-3xl font-bold text-red-500">{failures}</p>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import SummaryCards from '../components/SummaryCards.astro';
+import TestProgressBar from '../components/TestProgressBar.astro';
+import EmptyState from '../components/EmptyState.astro';
+import {
+  getAllReports,
+  getGlobalMetrics,
+  getPassRate,
+  getStatusLevel,
+  getStatusEmoji,
+  getRecentFailures,
+  formatDuration,
+  formatDate,
+} from '../utils/reports';
+
+const reports = getAllReports();
+const metrics = getGlobalMetrics();
+const recentFailures = getRecentFailures().slice(0, 5);
+const reportsWithData = reports.filter(r => r.hasReport);
+const pendingSites = reports.filter(r => !r.hasReport);
+---
+
+<DashboardLayout title="Dashboard">
+  <div class="mb-8">
+    <h1 class="text-2xl font-bold text-slate-900 mb-2">Dashboard</h1>
+    <p class="text-slate-500">Resumen general de tus sitios WordPress monitoreados</p>
+  </div>
+
+  <SummaryCards
+    totalSites={metrics.totalSites}
+    totalTests={metrics.totalTests}
+    passRate={metrics.passRate}
+    failures={metrics.totalFailed}
+  />
+
+  <section class="mt-10">
+    <h2 class="text-lg font-semibold text-slate-900 mb-4">Últimas ejecuciones</h2>
+
+    {reports.length === 0 ? (
+      <EmptyState
+        icon="📭"
+        message="No hay sitios monitoreados todavía"
+        actionLabel="Agregar primer sitio"
+        actionHref="/sites/new"
+      />
+    ) : (
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">
+        {reportsWithData
+          .sort((a, b) => new Date(b.lastRun!).getTime() - new Date(a.lastRun!).getTime())
+          .map(report => {
+            const passed = report.tests.filter(t => t.status === 'pass').length;
+            const rate = getPassRate(report);
+            const level = getStatusLevel(rate);
+            const emoji = getStatusEmoji(level);
+
+            return (
+              <a
+                href={`/sites/${report.slug}`}
+                class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4 hover:bg-slate-50 transition-colors"
+              >
+                <span class="text-lg">{emoji}</span>
+                <span class="font-medium text-slate-900 min-w-0 truncate sm:w-48">
+                  {report.name}
+                </span>
+                <span class="text-sm text-slate-500 hidden sm:block">
+                  {report.url}
+                </span>
+                <div class="flex-1 min-w-[120px] max-w-[200px]">
+                  <TestProgressBar passed={passed} total={report.tests.length} />
+                </div>
+                <span class="text-sm text-slate-600 whitespace-nowrap">
+                  {passed}/{report.tests.length} tests
+                </span>
+                <span class="text-sm text-slate-400 whitespace-nowrap">
+                  {formatDuration(report.duration)}
+                </span>
+                <span class="text-sm text-slate-400 whitespace-nowrap">
+                  {formatDate(report.lastRun!)}
+                </span>
+              </a>
+            );
+          })}
+
+        {pendingSites.map(site => (
+          <a
+            href={`/sites/${site.slug}`}
+            class="flex items-center gap-3 sm:gap-4 p-4 hover:bg-slate-50 transition-colors"
+          >
+            <span class="text-lg">⏳</span>
+            <span class="font-medium text-slate-900 min-w-0 truncate sm:w-48">
+              {site.name}
+            </span>
+            <span class="text-sm text-slate-500 hidden sm:block">
+              {site.url}
+            </span>
+            <span class="text-sm text-slate-400">Pendiente de primer test</span>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+
+  {recentFailures.length > 0 && (
+    <section class="mt-10">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4">Hallazgos recientes</h2>
+      <div class="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">
+        {recentFailures.map(failure => (
+          <div class="p-4">
+            <div class="flex items-start gap-3">
+              <span class="text-red-500 text-lg">❌</span>
+              <div class="min-w-0">
+                <p class="font-medium text-slate-900">{failure.testName}</p>
+                <p class="text-sm text-slate-500 mt-0.5">
+                  <a href={`/sites/${failure.siteSlug}`} class="hover:text-primary-600 hover:underline">
+                    {failure.siteName}
+                  </a>
+                  {' — '}
+                  {failure.error}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+</DashboardLayout>

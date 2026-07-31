@@ -1,0 +1,34 @@
+---
+import { getStatusLevel } from '../utils/reports';
+
+interface Props {
+  passed: number;
+  total: number;
+}
+
+const { passed, total } = Astro.props;
+const rate = total > 0 ? Math.round((passed / total) * 100) : 0;
+const statusLevel = getStatusLevel(rate);
+
+const barColorMap = {
+  green: 'bg-green-500',
+  yellow: 'bg-yellow-400',
+  red: 'bg-red-500',
+};
+
+const trackColorMap = {
+  green: 'bg-green-100',
+  yellow: 'bg-yellow-100',
+  red: 'bg-red-100',
+};
+---
+
+<div class="flex items-center gap-3">
+  <div class:list={['flex-1 h-2 rounded-full overflow-hidden', trackColorMap[statusLevel]]}>
+    <div
+      class:list={['h-full rounded-full transition-all', barColorMap[statusLevel]]}
+      style={`width: ${rate}%`}
+    />
+  </div>
+  <span class="text-sm font-medium text-slate-600">{rate}%</span>
+</div>

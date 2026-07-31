@@ -1,0 +1,19 @@
+---
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import AddSiteForm from '../../components/AddSiteForm.astro';
+---
+
+<DashboardLayout title="Agregar sitio">
+  <div class="mb-6">
+    <a href="/sites" class="text-sm text-primary-600 hover:text-primary-700 hover:underline">
+      ← Volver a sitios
+    </a>
+  </div>
+
+  <div class="mb-8">
+    <h1 class="text-2xl font-bold text-slate-900 mb-1">Agregar nuevo sitio</h1>
+    <p class="text-slate-500">Registra un nuevo sitio WordPress para monitorear sus tests automatizados</p>
+  </div>
+
+  <AddSiteForm />
+</DashboardLayout>

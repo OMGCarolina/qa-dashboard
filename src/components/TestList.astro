@@ -1,0 +1,43 @@
+---
+import type { TestResult } from '../utils/reports';
+import { formatDuration } from '../utils/reports';
+
+interface Props {
+  tests: TestResult[];
+}
+
+const { tests } = Astro.props;
+---
+
+<div class="space-y-2">
+  {tests.map(test => (
+    <div class:list={[
+      'rounded-lg border p-4',
+      test.status === 'pass'
+        ? 'bg-green-50 border-green-200'
+        : 'bg-red-50 border-red-200',
+    ]}>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="text-lg flex-shrink-0">
+            {test.status === 'pass' ? '✅' : '❌'}
+          </span>
+          <span class:list={[
+            'font-medium truncate',
+            test.status === 'pass' ? 'text-green-800' : 'text-red-800',
+          ]}>
+            {test.name}
+          </span>
+        </div>
+        <span class="text-sm text-slate-500 flex-shrink-0 ml-4">
+          {formatDuration(test.duration)}
+        </span>
+      </div>
+      {test.error && (
+        <p class="mt-2 ml-8 text-sm text-slate-600">
+          {test.error}
+        </p>
+      )}
+    </div>
+  ))}
+</div>

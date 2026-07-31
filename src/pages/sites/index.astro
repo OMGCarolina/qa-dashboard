@@ -1,0 +1,75 @@
+---
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import SiteCard from '../../components/SiteCard.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getAllReports } from '../../utils/reports';
+
+const reports = getAllReports();
+---
+
+<DashboardLayout title="Sitios">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+    <div>
+      <h1 class="text-2xl font-bold text-slate-900 mb-1">Todos los sitios</h1>
+      <p class="text-slate-500">{reports.length} sitios monitoreados</p>
+    </div>
+    <a
+      href="/sites/new"
+      class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2.5 rounded-lg transition-colors"
+    >
+      <span>+</span> Agregar sitio
+    </a>
+  </div>
+
+  <div class="mb-6">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Buscar por nombre o URL..."
+      class="w-full sm:w-80 px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-shadow"
+    />
+  </div>
+
+  {reports.length === 0 ? (
+    <EmptyState
+      icon="🌐"
+      message="No hay sitios todavía. Agrega tu primer sitio WordPress para empezar a monitorear."
+      actionLabel="Agregar sitio"
+      actionHref="/sites/new"
+    />
+  ) : (
+    <div id="sites-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {reports.map(report => (
+        <div class="site-card" data-name={report.name.toLowerCase()} data-url={report.url.toLowerCase()}>
+          <SiteCard report={report} />
+        </div>
+      ))}
+    </div>
+    <p id="no-results" class="hidden text-center text-slate-500 py-12">
+      No se encontraron sitios con ese criterio.
+    </p>
+  )}
+</DashboardLayout>
+
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const cards = document.querySelectorAll('.site-card');
+  const noResults = document.getElementById('no-results');
+
+  searchInput?.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const name = card.getAttribute('data-name') || '';
+      const url = card.getAttribute('data-url') || '';
+      const matches = !query || name.includes(query) || url.includes(query);
+      (card as HTMLElement).style.display = matches ? '' : 'none';
+      if (matches) visibleCount++;
+    });
+
+    if (noResults) {
+      noResults.classList.toggle('hidden', visibleCount > 0);
+    }
+  });
+</script>

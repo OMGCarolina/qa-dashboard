@@ -1,0 +1,53 @@
+---
+import { getPassRate, getStatusLevel, getStatusEmoji, formatDuration, formatDate } from '../utils/reports';
+import type { SiteReport } from '../utils/reports';
+import TestProgressBar from './TestProgressBar.astro';
+
+interface Props {
+  report: SiteReport;
+}
+
+const { report } = Astro.props;
+const passRate = getPassRate(report);
+const statusLevel = report.hasReport ? getStatusLevel(passRate) : 'pending';
+const emoji = getStatusEmoji(statusLevel);
+const passed = report.tests.filter(t => t.status === 'pass').length;
+const firstFailure = report.tests.find(t => t.status === 'fail');
+---
+
+<a
+  href={`/sites/${report.slug}`}
+  class="block bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-primary-300 transition-all p-5"
+>
+  <div class="flex items-start justify-between mb-3">
+    <div>
+      <p class="text-lg font-semibold text-slate-900">{emoji} {report.name}</p>
+      <p class="text-sm text-slate-500">{report.url}</p>
+    </div>
+  </div>
+
+  {report.hasReport ? (
+    <>
+      <div class="flex items-center gap-3 text-sm text-slate-600 mb-3">
+        <span>{passed}/{report.tests.length} tests</span>
+        <span class="text-slate-300">·</span>
+        <span>{formatDuration(report.duration)}</span>
+        <span class="text-slate-300">·</span>
+        <span>{formatDate(report.lastRun!)}</span>
+      </div>
+
+      <TestProgressBar passed={passed} total={report.tests.length} />
+
+      {firstFailure && (
+        <p class="mt-3 text-sm text-red-600 truncate">
+          ❌ {firstFailure.name}
+        </p>
+      )}
+    </>
+  ) : (
+    <div class="flex items-center gap-2 text-sm text-slate-400 mt-1">
+      <span>⏳</span>
+      <span>Pendiente de primer test</span>
+    </div>
+  )}
+</a>
