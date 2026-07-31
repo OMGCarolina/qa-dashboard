@@ -1,71 +1,69 @@
 {
-  "slug": "jersey-canna",
-  "lastRun": "2026-07-31T20:25:30.566Z",
-  "duration": 6514,
+  "slug": "jerseyleaf",
+  "lastRun": "2026-07-31T20:25:36.976Z",
+  "duration": 6366,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1241
+      "duration": 1266
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 705
+      "duration": 326
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 438
+      "duration": 774
     },
     {
       "name": "Meta description presente",
-      "status": "fail",
-      "duration": 454,
-      "error": "Meta description no encontrada"
+      "status": "pass",
+      "duration": 442
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "fail",
-      "duration": 435,
-      "error": "Faltan: og:title, og:description, og:image"
+      "status": "pass",
+      "duration": 313
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 464
+      "duration": 430
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 497,
+      "duration": 589,
       "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 507
+      "duration": 493
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 435
+      "duration": 429
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "fail",
-      "duration": 453,
-      "error": "Meta viewport no encontrado"
+      "status": "pass",
+      "duration": 438
     },
     {
       "name": "Etiqueta H1 presente",
-      "status": "pass",
-      "duration": 436
+      "status": "fail",
+      "duration": 429,
+      "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 449
+      "duration": 437
     }
   ]
 }

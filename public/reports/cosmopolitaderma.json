@@ -1,71 +1,68 @@
 {
-  "slug": "jersey-canna",
-  "lastRun": "2026-07-31T20:25:30.566Z",
-  "duration": 6514,
+  "slug": "cosmopolitaderma",
+  "lastRun": "2026-07-31T20:25:51.757Z",
+  "duration": 14736,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1241
+      "duration": 1433
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 705
+      "duration": 1362
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 438
+      "duration": 1395
     },
     {
       "name": "Meta description presente",
-      "status": "fail",
-      "duration": 454,
-      "error": "Meta description no encontrada"
+      "status": "pass",
+      "duration": 1381
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "fail",
-      "duration": 435,
-      "error": "Faltan: og:title, og:description, og:image"
+      "status": "pass",
+      "duration": 1579
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 464
+      "duration": 1350
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 497,
+      "duration": 559,
       "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 507
+      "duration": 286
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 435
+      "duration": 1342
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "fail",
-      "duration": 453,
-      "error": "Meta viewport no encontrado"
+      "status": "pass",
+      "duration": 1341
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 436
+      "duration": 1350
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 449
+      "duration": 1358
     }
   ]
 }
