@@ -1,19 +1,71 @@
 {
   "slug": "jersey-canna",
-  "lastRun": "2026-07-31T14:30:00Z",
-  "duration": 1200,
+  "lastRun": "2026-07-31T19:54:00.383Z",
+  "duration": 6243,
   "tests": [
-    { "name": "Homepage responde HTTP 200", "status": "pass", "duration": 342 },
-    { "name": "Página /tienda accesible", "status": "pass", "duration": 287 },
-    { "name": "Formulario de contacto funciona", "status": "pass", "duration": 156 },
-    { "name": "Meta description presente en homepage", "status": "fail", "duration": 89, "error": "Meta description tag no encontrado en el HTML" },
-    { "name": "Título H1 único por página", "status": "pass", "duration": 134 },
-    { "name": "Imágenes con atributo alt", "status": "fail", "duration": 201, "error": "3 imágenes sin atributo alt en /tienda" },
-    { "name": "SSL funciona correctamente", "status": "pass", "duration": 98 },
-    { "name": "Sitemap XML accesible", "status": "pass", "duration": 112 },
-    { "name": "robots.txt configurado", "status": "pass", "duration": 76 },
-    { "name": "Tiempo de carga < 3 segundos", "status": "pass", "duration": 445 },
-    { "name": "Open Graph tags presentes", "status": "pass", "duration": 67 },
-    { "name": "Schema markup válido", "status": "pass", "duration": 189 }
+    {
+      "name": "Homepage responde HTTP 200",
+      "status": "pass",
+      "duration": 1143
+    },
+    {
+      "name": "Tiempo de carga < 3 segundos",
+      "status": "pass",
+      "duration": 695
+    },
+    {
+      "name": "Título de página presente",
+      "status": "pass",
+      "duration": 440
+    },
+    {
+      "name": "Meta description presente",
+      "status": "fail",
+      "duration": 444,
+      "error": "Meta description no encontrada"
+    },
+    {
+      "name": "Open Graph tags presentes",
+      "status": "fail",
+      "duration": 437,
+      "error": "Faltan: og:title, og:description, og:image"
+    },
+    {
+      "name": "SSL / HTTPS funciona",
+      "status": "pass",
+      "duration": 442
+    },
+    {
+      "name": "Sitemap XML accesible",
+      "status": "fail",
+      "duration": 484,
+      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+    },
+    {
+      "name": "robots.txt configurado",
+      "status": "pass",
+      "duration": 529
+    },
+    {
+      "name": "URL raíz sin redirección innecesaria",
+      "status": "pass",
+      "duration": 435
+    },
+    {
+      "name": "Meta viewport presente (responsive)",
+      "status": "fail",
+      "duration": 445,
+      "error": "Meta viewport no encontrado"
+    },
+    {
+      "name": "Etiqueta H1 presente",
+      "status": "pass",
+      "duration": 434
+    },
+    {
+      "name": "Charset UTF-8 configurado",
+      "status": "pass",
+      "duration": 315
+    }
   ]
 }
