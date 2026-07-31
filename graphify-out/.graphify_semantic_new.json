@@ -1,0 +1,193 @@
+{
+  "nodes": [
+    {
+      "id": "agents_md",
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_md",
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_md",
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_favicon_svg",
+      "label": "favicon.svg",
+      "file_type": "image",
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "concept_astro_dev_workflow",
+      "label": "Astro Development Workflow",
+      "file_type": "concept",
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Defines the dev server lifecycle: start with astro dev --background, manage with stop/status/logs commands"
+    },
+    {
+      "id": "concept_astro_project_structure",
+      "label": "Astro Project Structure",
+      "file_type": "concept",
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Convention-based routing: .astro/.md files in src/pages/ become routes; src/components/ for UI components; public/ for static assets"
+    },
+    {
+      "id": "concept_astro_guides",
+      "label": "Astro Documentation Guides",
+      "file_type": "concept",
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Six reference guides: routing, Astro components, framework components, content collections, styling, internationalization"
+    }
+  ],
+  "edges": [
+    {
+      "source": "agents_md",
+      "target": "claude_md",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md",
+      "target": "concept_astro_dev_workflow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md",
+      "target": "concept_astro_guides",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_md",
+      "target": "concept_astro_dev_workflow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claude_md",
+      "target": "concept_astro_guides",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_md",
+      "target": "concept_astro_project_structure",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_md",
+      "target": "concept_astro_guides",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_md",
+      "target": "public_favicon_svg",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "concept_astro_dev_workflow",
+      "target": "concept_astro_project_structure",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "astro_project_conventions",
+      "label": "Astro Project Conventions",
+      "nodes": [
+        "concept_astro_dev_workflow",
+        "concept_astro_project_structure",
+        "concept_astro_guides"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/omg/Desktop/repositorios/qa-dashboard/README.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
