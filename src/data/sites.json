@@ -19,5 +19,12 @@
     "url": "https://cosmopolitaderma.com",
     "description": "Clínica de dermatología y cosmética",
     "addedAt": "2026-07-31T20:25:18.597Z"
+  },
+  {
+    "slug": "montessoriminds",
+    "name": "Montessori Minds",
+    "url": "https://montessoriminds.org",
+    "description": "Educación Montessori",
+    "addedAt": "2026-08-03T14:03:00.000Z"
   }
 ]
