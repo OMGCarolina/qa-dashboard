@@ -1,69 +1,70 @@
 {
-  "slug": "jerseyleaf",
-  "lastRun": "2026-08-03T14:03:43.421Z",
-  "duration": 6313,
+  "slug": "montessoriminds",
+  "lastRun": "2026-08-03T14:04:01.675Z",
+  "duration": 2432,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1256
+      "duration": 422
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 778
+      "duration": 277
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 461
+      "duration": 166
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 433
+      "duration": 159
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "pass",
-      "duration": 451
+      "status": "fail",
+      "duration": 164,
+      "error": "Faltan: og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 429
+      "duration": 161
     },
     {
       "name": "Sitemap XML accesible",
-      "status": "fail",
-      "duration": 601,
-      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+      "status": "pass",
+      "duration": 293
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 504
+      "duration": 137
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 449
+      "duration": 168
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 318
+      "duration": 161
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 316,
+      "duration": 163,
       "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
-      "status": "pass",
-      "duration": 317
+      "status": "fail",
+      "duration": 161,
+      "error": "No se detectó charset UTF-8"
     }
   ]
 }

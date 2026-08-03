@@ -2,6 +2,7 @@ import sitesData from '../data/sites.json';
 import reportJerseyCanna from '../data/reports/jersey-canna.json';
 import reportJerseyleaf from '../data/reports/jerseyleaf.json';
 import reportCosmopolitaderma from '../data/reports/cosmopolitaderma.json';
+import reportMontessoriminds from '../data/reports/montessoriminds.json';
 
 export interface TestResult {
   name: string;
@@ -53,6 +54,7 @@ const reportFiles: ReportData[] = [
   reportJerseyCanna as ReportData,
   reportJerseyleaf as ReportData,
   reportCosmopolitaderma as ReportData,
+  reportMontessoriminds as ReportData,
 ];
 for (const report of reportFiles) {
   reportsMap.set(report.slug, report);
