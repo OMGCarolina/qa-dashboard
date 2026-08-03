@@ -1,71 +1,71 @@
 {
   "slug": "jersey-canna",
-  "lastRun": "2026-08-03T14:03:37.067Z",
-  "duration": 6328,
+  "lastRun": "2026-08-03T14:05:00.740Z",
+  "duration": 5760,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1244
+      "duration": 1034
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 385
+      "duration": 716
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 647
+      "duration": 373
     },
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 422,
+      "duration": 413,
       "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 301,
+      "duration": 411,
       "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 417
+      "duration": 293
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 1064,
+      "duration": 488,
       "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 532
+      "duration": 499
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 418
+      "duration": 413
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 298,
+      "duration": 293,
       "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 300
+      "duration": 416
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 300
+      "duration": 411
     }
   ]
 }
