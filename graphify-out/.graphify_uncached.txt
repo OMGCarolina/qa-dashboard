@@ -1,4 +1,0 @@
-/Users/omg/Desktop/repositorios/qa-dashboard/AGENTS.md
-/Users/omg/Desktop/repositorios/qa-dashboard/CLAUDE.md
-/Users/omg/Desktop/repositorios/qa-dashboard/README.md
-/Users/omg/Desktop/repositorios/qa-dashboard/public/favicon.svg

@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { env } from "cloudflare:workers";
 
 const GITHUB_REPO = 'OMGCarolina/qa-dashboard';
 const SITES_FILE_PATH = 'src/data/sites.json';
@@ -13,8 +14,8 @@ function generateSlug(name: string): string {
     .replace(/^-|-$/g, '');
 }
 
-export const POST: APIRoute = async ({ request, locals }) => {
-  const token = (locals as any).runtime.env.GITHUB_TOKEN;
+export const POST: APIRoute = async ({ request }) => {
+  const token = env.GITHUB_TOKEN;
 
   if (!token) {
     return new Response(
