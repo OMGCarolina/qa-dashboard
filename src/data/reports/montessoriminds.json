@@ -1,43 +1,43 @@
 {
   "slug": "montessoriminds",
-  "lastRun": "2026-08-03T14:05:24.099Z",
-  "duration": 2271,
+  "lastRun": "2026-08-04T18:01:31.126Z",
+  "duration": 2734,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 417
+      "duration": 654
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 157
+      "duration": 251
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 163
+      "duration": 165
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 161
+      "duration": 166
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 161,
+      "duration": 158,
       "error": "Faltan: og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 158
+      "duration": 155
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 278
+      "duration": 409
     },
     {
       "name": "robots.txt configurado",
@@ -47,17 +47,17 @@
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 160
+      "duration": 170
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 168
+      "duration": 159
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 158,
+      "duration": 157,
       "error": "No se encontró H1"
     },
     {
