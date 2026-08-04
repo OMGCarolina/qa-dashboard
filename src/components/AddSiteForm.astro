@@ -63,30 +63,6 @@
 
   <div id="form-message" class="hidden rounded-lg p-4 text-sm"></div>
 
-  <div id="post-save-actions" class="hidden p-4 bg-slate-50 border border-slate-200 rounded-lg">
-    <p class="text-sm text-slate-700 mb-3">
-      Sitio agregado correctamente. ¿Qué quieres hacer?
-    </p>
-    <div class="flex flex-col sm:flex-row gap-3">
-      <button
-        type="button"
-        id="deploy-btn"
-        class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        Actualizar dashboard
-      </button>
-      <button
-        type="button"
-        id="run-tests-btn"
-        disabled
-        class="flex-1 bg-slate-400 text-white font-medium py-2.5 px-4 rounded-lg cursor-not-allowed"
-      >
-        Ejecutar tests (próximamente)
-      </button>
-    </div>
-    <p id="deploy-status" class="hidden mt-3 text-sm"></p>
-  </div>
-
   <button
     type="submit"
     id="submit-btn"
@@ -102,9 +78,6 @@
   const slugPreview = document.getElementById('slug-preview');
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const formMessage = document.getElementById('form-message');
-  const postSaveActions = document.getElementById('post-save-actions');
-  const deployBtn = document.getElementById('deploy-btn') as HTMLButtonElement;
-  const deployStatus = document.getElementById('deploy-status');
 
   nameInput?.addEventListener('input', () => {
     const slug = nameInput.value
@@ -122,13 +95,15 @@
     }
   });
 
-  function showMessage(text: string, type: 'success' | 'error') {
+  function showMessage(text: string, type: 'success' | 'error' | 'loading') {
     if (!formMessage) return;
     formMessage.textContent = text;
     formMessage.className = `rounded-lg p-4 text-sm ${
       type === 'success'
         ? 'bg-green-50 text-green-800 border border-green-200'
-        : 'bg-red-50 text-red-800 border border-red-200'
+        : type === 'error'
+          ? 'bg-red-50 text-red-800 border border-red-200'
+          : 'bg-blue-50 text-blue-800 border border-blue-200'
     }`;
     formMessage.classList.remove('hidden');
   }
@@ -137,13 +112,16 @@
     e.preventDefault();
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Agregando...';
     formMessage?.classList.add('hidden');
 
     const formData = new FormData(form);
     const name = (formData.get('name') as string).trim();
     const url = (formData.get('url') as string).trim();
     const description = (formData.get('description') as string)?.trim() || undefined;
+
+    // Estado: Guardando
+    submitBtn.textContent = 'Guardando...';
+    showMessage('Guardando sitio en GitHub...', 'loading');
 
     try {
       const res = await fetch('/api/add-site', {
@@ -159,58 +137,34 @@
         return;
       }
 
-      showMessage(
-        `Sitio "${data.name}" agregado correctamente.`,
-        'success'
-      );
+      // Estado: Desplegando
+      if (data.deploying) {
+        submitBtn.textContent = 'Desplegando...';
+        showMessage('Sitio guardado. Desplegando dashboard...', 'loading');
+      } else {
+        showMessage(
+          `Sitio "${data.name}" agregado correctamente. Podrás ver tu nuevo sitio en ~1 minuto.`,
+          'success'
+        );
+      }
+
       form.reset();
       slugPreview?.classList.add('hidden');
 
-      // Mostrar acciones post-guardado
-      if (postSaveActions) {
-        postSaveActions.classList.remove('hidden');
+      // Si el deploy se inició, mostrar mensaje final después de un delay
+      if (data.deploying) {
+        setTimeout(() => {
+          showMessage(
+            `Sitio "${data.name}" agregado correctamente. Podrás ver tu nuevo sitio en ~1 minuto.`,
+            'success'
+          );
+        }, 2000);
       }
     } catch {
       showMessage('Error de conexión', 'error');
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Agregar sitio y generar tests';
-    }
-  });
-
-  // Deploy button handler
-  deployBtn?.addEventListener('click', async () => {
-    deployBtn.disabled = true;
-    deployBtn.textContent = 'Actualizando...';
-    deployStatus?.classList.remove('hidden');
-    if (deployStatus) {
-      deployStatus.className = 'mt-3 text-sm text-slate-600';
-      deployStatus.textContent = 'Iniciando deploy...';
-    }
-
-    try {
-      const res = await fetch('/api/deploy', { method: 'POST' });
-      const data = await res.json();
-
-      if (res.ok) {
-        if (deployStatus) {
-          deployStatus.className = 'mt-3 text-sm text-green-600';
-          deployStatus.textContent = 'Deploy iniciado. El dashboard se actualizará en ~1 minuto.';
-        }
-      } else {
-        if (deployStatus) {
-          deployStatus.className = 'mt-3 text-sm text-red-600';
-          deployStatus.textContent = data.error || 'Error al iniciar deploy';
-        }
-      }
-    } catch {
-      if (deployStatus) {
-        deployStatus.className = 'mt-3 text-sm text-red-600';
-        deployStatus.textContent = 'Error de conexión';
-      }
-    } finally {
-      deployBtn.disabled = false;
-      deployBtn.textContent = 'Actualizar dashboard';
     }
   });
 </script>

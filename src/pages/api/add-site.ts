@@ -3,6 +3,7 @@ import type { APIRoute } from 'astro';
 const GITHUB_REPO = 'OMGCarolina/qa-dashboard';
 const SITES_FILE_PATH = 'src/data/sites.json';
 const GITHUB_API = 'https://api.github.com';
+const DEPLOY_HOOK_URL = 'https://api.cloudflare.com/client/v4/workers/builds/deploy_hooks/8d600d74-e2b0-425e-a0eb-461437da6479';
 
 function generateSlug(name: string): string {
   return name
@@ -114,8 +115,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
       throw new Error(`Error commitando: ${commitRes.status}`);
     }
 
+    // Auto-deploy después de guardar
+    let deploying = false;
+    try {
+      const deployRes = await fetch(DEPLOY_HOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      deploying = deployRes.ok;
+    } catch (e) {
+      // No fallar si el deploy falla - el sitio ya se guardó
+      console.error('Deploy hook error:', e);
+    }
+
     return new Response(
-      JSON.stringify({ success: true, slug, name }),
+      JSON.stringify({ success: true, slug, name, deploying }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (err) {
