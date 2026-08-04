@@ -1,69 +1,71 @@
 {
-  "slug": "jerseyleaf",
-  "lastRun": "2026-08-04T21:42:08.280Z",
-  "duration": 6377,
+  "slug": "rush-budz",
+  "lastRun": "2026-08-04T21:42:52.098Z",
+  "duration": 7450,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1382
+      "duration": 1354
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 469
+      "duration": 730
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 788
+      "duration": 338
     },
     {
       "name": "Meta description presente",
-      "status": "pass",
-      "duration": 463
+      "status": "fail",
+      "duration": 324,
+      "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "pass",
-      "duration": 322
+      "status": "fail",
+      "duration": 429,
+      "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 434
+      "duration": 437
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 500,
-      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+      "duration": 1984,
+      "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 504
+      "duration": 507
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 435
+      "duration": 415
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "pass",
-      "duration": 448
+      "status": "fail",
+      "duration": 310,
+      "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
-      "status": "fail",
-      "duration": 317,
-      "error": "No se encontró H1"
+      "status": "pass",
+      "duration": 313
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 315
+      "duration": 309
     }
   ]
 }

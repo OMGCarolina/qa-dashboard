@@ -4,6 +4,10 @@ import reportJerseyleaf from '../data/reports/jerseyleaf.json';
 import reportCosmopolitaderma from '../data/reports/cosmopolitaderma.json';
 import reportMontessoriminds from '../data/reports/montessoriminds.json';
 import reportExplorenirvana from '../data/reports/explorenirvana.json';
+import reportFireOak from '../data/reports/fire-oak.json';
+import reportRushBudz from '../data/reports/rush-budz.json';
+import reportNevaehVerdeDispensary from '../data/reports/nevaeh-verde-dispensary.json';
+import reportGuillerminasFood from '../data/reports/guillerminas-food.json';
 
 export interface TestResult {
   name: string;
@@ -57,6 +61,10 @@ const reportFiles: ReportData[] = [
   reportCosmopolitaderma as ReportData,
   reportMontessoriminds as ReportData,
   reportExplorenirvana as ReportData,
+  reportFireOak as ReportData,
+  reportRushBudz as ReportData,
+  reportNevaehVerdeDispensary as ReportData,
+  reportGuillerminasFood as ReportData,
 ];
 for (const report of reportFiles) {
   reportsMap.set(report.slug, report);

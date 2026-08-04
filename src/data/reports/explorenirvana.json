@@ -1,72 +1,72 @@
 {
   "slug": "explorenirvana",
-  "lastRun": "2026-08-04T18:01:37.953Z",
-  "duration": 6782,
+  "lastRun": "2026-08-04T21:42:31.604Z",
+  "duration": 5334,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1021
+      "duration": 1381
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 672
+      "duration": 475
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 432
+      "duration": 356
     },
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 428,
+      "duration": 352,
       "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 432,
+      "duration": 334,
       "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 428
+      "duration": 332
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 1499,
+      "duration": 511,
       "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 282
+      "duration": 271
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 426
+      "duration": 331
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 426,
+      "duration": 331,
       "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 425,
+      "duration": 329,
       "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 311
+      "duration": 331
     }
   ]
 }
