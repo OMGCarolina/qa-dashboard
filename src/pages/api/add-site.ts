@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro';
-import { env } from "cloudflare:workers";
 
 const GITHUB_REPO = 'OMGCarolina/qa-dashboard';
 const SITES_FILE_PATH = 'src/data/sites.json';
@@ -14,8 +13,15 @@ function generateSlug(name: string): string {
     .replace(/^-|-$/g, '');
 }
 
-export const POST: APIRoute = async ({ request }) => {
-  const token = env.GITHUB_TOKEN;
+export const POST: APIRoute = async ({ request, locals }) => {
+  let token: string | undefined;
+
+  try {
+    const { env } = await import("cloudflare:workers");
+    token = env.GITHUB_TOKEN;
+  } catch {
+    token = (locals as any).runtime?.env?.GITHUB_TOKEN;
+  }
 
   if (!token) {
     return new Response(
@@ -54,6 +60,7 @@ export const POST: APIRoute = async ({ request }) => {
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: 'application/vnd.github.v3+json',
+          'User-Agent': 'qa-dashboard',
         },
       }
     );
@@ -92,6 +99,7 @@ export const POST: APIRoute = async ({ request }) => {
           Authorization: `Bearer ${token}`,
           Accept: 'application/vnd.github.v3+json',
           'Content-Type': 'application/json',
+          'User-Agent': 'qa-dashboard',
         },
         body: JSON.stringify({
           message: `add site: ${name} (${slug})`,
@@ -103,7 +111,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (!commitRes.ok) {
       const err = await commitRes.text();
-      throw new Error(`Error commitando: ${commitRes.status} ${err}`);
+      throw new Error(`Error commitando: ${commitRes.status}`);
     }
 
     return new Response(
