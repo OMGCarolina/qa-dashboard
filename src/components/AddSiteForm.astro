@@ -63,6 +63,30 @@
 
   <div id="form-message" class="hidden rounded-lg p-4 text-sm"></div>
 
+  <div id="post-save-actions" class="hidden p-4 bg-slate-50 border border-slate-200 rounded-lg">
+    <p class="text-sm text-slate-700 mb-3">
+      Sitio agregado correctamente. ¿Qué quieres hacer?
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3">
+      <button
+        type="button"
+        id="deploy-btn"
+        class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Actualizar dashboard
+      </button>
+      <button
+        type="button"
+        id="run-tests-btn"
+        disabled
+        class="flex-1 bg-slate-400 text-white font-medium py-2.5 px-4 rounded-lg cursor-not-allowed"
+      >
+        Ejecutar tests (próximamente)
+      </button>
+    </div>
+    <p id="deploy-status" class="hidden mt-3 text-sm"></p>
+  </div>
+
   <button
     type="submit"
     id="submit-btn"
@@ -78,6 +102,9 @@
   const slugPreview = document.getElementById('slug-preview');
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const formMessage = document.getElementById('form-message');
+  const postSaveActions = document.getElementById('post-save-actions');
+  const deployBtn = document.getElementById('deploy-btn') as HTMLButtonElement;
+  const deployStatus = document.getElementById('deploy-status');
 
   nameInput?.addEventListener('input', () => {
     const slug = nameInput.value
@@ -133,16 +160,57 @@
       }
 
       showMessage(
-        `Sitio "${data.name}" agregado correctamente. El dashboard se actualizará en ~1 minuto.`,
+        `Sitio "${data.name}" agregado correctamente.`,
         'success'
       );
       form.reset();
       slugPreview?.classList.add('hidden');
+
+      // Mostrar acciones post-guardado
+      if (postSaveActions) {
+        postSaveActions.classList.remove('hidden');
+      }
     } catch {
       showMessage('Error de conexión', 'error');
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Agregar sitio y generar tests';
+    }
+  });
+
+  // Deploy button handler
+  deployBtn?.addEventListener('click', async () => {
+    deployBtn.disabled = true;
+    deployBtn.textContent = 'Actualizando...';
+    deployStatus?.classList.remove('hidden');
+    if (deployStatus) {
+      deployStatus.className = 'mt-3 text-sm text-slate-600';
+      deployStatus.textContent = 'Iniciando deploy...';
+    }
+
+    try {
+      const res = await fetch('/api/deploy', { method: 'POST' });
+      const data = await res.json();
+
+      if (res.ok) {
+        if (deployStatus) {
+          deployStatus.className = 'mt-3 text-sm text-green-600';
+          deployStatus.textContent = 'Deploy iniciado. El dashboard se actualizará en ~1 minuto.';
+        }
+      } else {
+        if (deployStatus) {
+          deployStatus.className = 'mt-3 text-sm text-red-600';
+          deployStatus.textContent = data.error || 'Error al iniciar deploy';
+        }
+      }
+    } catch {
+      if (deployStatus) {
+        deployStatus.className = 'mt-3 text-sm text-red-600';
+        deployStatus.textContent = 'Error de conexión';
+      }
+    } finally {
+      deployBtn.disabled = false;
+      deployBtn.textContent = 'Actualizar dashboard';
     }
   });
 </script>
