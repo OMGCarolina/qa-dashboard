@@ -18,7 +18,16 @@ const reports = getAllReports();
 const metrics = getGlobalMetrics();
 const recentFailures = getRecentFailures().slice(0, 5);
 const reportsWithData = reports.filter(r => r.hasReport);
-const pendingSites = reports.filter(r => !r.hasReport);
+
+const topScore = [...reportsWithData]
+  .sort((a, b) => getPassRate(b) - getPassRate(a))
+  .slice(0, 3);
+
+const topSlugs = new Set(topScore.map(r => r.slug));
+const bottomScore = [...reportsWithData]
+  .filter(r => !topSlugs.has(r.slug))
+  .sort((a, b) => getPassRate(a) - getPassRate(b))
+  .slice(0, 3);
 ---
 
 <DashboardLayout title="Dashboard">
@@ -48,6 +57,7 @@ const pendingSites = reports.filter(r => !r.hasReport);
       <div class="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">
         {reportsWithData
           .sort((a, b) => new Date(b.lastRun!).getTime() - new Date(a.lastRun!).getTime())
+          .slice(0, 5)
           .map(report => {
             const passed = report.tests.filter(t => t.status === 'pass').length;
             const rate = getPassRate(report);
@@ -81,48 +91,147 @@ const pendingSites = reports.filter(r => !r.hasReport);
               </a>
             );
           })}
-
-        {pendingSites.map(site => (
-          <a
-            href={`/sites/${site.slug}`}
-            class="flex items-center gap-3 sm:gap-4 p-4 hover:bg-slate-50 transition-colors"
-          >
-            <span class="text-lg">⏳</span>
-            <span class="font-medium text-slate-900 min-w-0 truncate sm:w-48">
-              {site.name}
-            </span>
-            <span class="text-sm text-slate-500 hidden sm:block">
-              {site.url}
-            </span>
-            <span class="text-sm text-slate-400">Pendiente de primer test</span>
-          </a>
-        ))}
       </div>
     )}
   </section>
 
-  {recentFailures.length > 0 && (
-    <section class="mt-10">
-      <h2 class="text-lg font-semibold text-slate-900 mb-4">Hallazgos recientes</h2>
-      <div class="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">
-        {recentFailures.map(failure => (
-          <div class="p-4">
-            <div class="flex items-start gap-3">
-              <span class="text-red-500 text-lg">❌</span>
-              <div class="min-w-0">
-                <p class="font-medium text-slate-900">{failure.testName}</p>
-                <p class="text-sm text-slate-500 mt-0.5">
-                  <a href={`/sites/${failure.siteSlug}`} class="hover:text-primary-600 hover:underline">
-                    {failure.siteName}
-                  </a>
-                  {' — '}
-                  {failure.error}
-                </p>
+  <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    {recentFailures.length > 0 && (
+      <section>
+        <h2 class="text-lg font-semibold text-slate-900 mb-4">Hallazgos recientes</h2>
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">
+          {recentFailures.map(failure => (
+            <div class="p-4">
+              <div class="flex items-start gap-3">
+                <span class="text-red-500 text-lg">❌</span>
+                <div class="min-w-0">
+                  <p class="font-medium text-slate-900">{failure.testName}</p>
+                  <p class="text-sm text-slate-500 mt-0.5">
+                    <a href={`/sites/${failure.siteSlug}`} class="hover:text-primary-600 hover:underline">
+                      {failure.siteName}
+                    </a>
+                    {' — '}
+                    {failure.error}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class={!recentFailures.length ? 'lg:col-span-2' : ''}>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold text-slate-900">Sitios por Score</h2>
+        <div class="flex bg-slate-100 rounded-lg p-1">
+          <button
+            class="score-tab px-3 py-1.5 text-sm font-medium rounded-md transition-colors bg-white text-slate-900 shadow-sm"
+            data-tab="mayor"
+          >
+            Mayor
+          </button>
+          <button
+            class="score-tab px-3 py-1.5 text-sm font-medium rounded-md transition-colors text-slate-600 hover:text-slate-900"
+            data-tab="menor"
+          >
+            Menor
+          </button>
+        </div>
+      </div>
+
+      <div id="tab-mayor" class="score-content">
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">
+          {topScore.map(report => {
+            const rate = getPassRate(report);
+            const level = getStatusLevel(rate);
+            const emoji = getStatusEmoji(level);
+            return (
+              <a
+                href={`/sites/${report.slug}`}
+                class="flex items-center gap-4 p-4 hover:bg-slate-50 transition-colors"
+              >
+                <span class="text-lg">{emoji}</span>
+                <span class="font-medium text-slate-900 flex-1 truncate">{report.name}</span>
+                <div class="flex items-center gap-3">
+                  <div class="w-20 bg-slate-100 rounded-full h-2">
+                    <div
+                      class:list={[
+                        'h-2 rounded-full transition-all',
+                        level === 'green' ? 'bg-green-500' : level === 'yellow' ? 'bg-yellow-500' : 'bg-red-500',
+                      ]}
+                      style={`width: ${rate}%`}
+                    />
+                  </div>
+                  <span class:list={[
+                    'text-sm font-semibold w-10 text-right',
+                    level === 'green' ? 'text-green-600' : level === 'yellow' ? 'text-yellow-600' : 'text-red-600',
+                  ]}>
+                    {rate}%
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <div id="tab-menor" class="score-content hidden">
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm divide-y divide-slate-100">
+          {bottomScore.map(report => {
+            const rate = getPassRate(report);
+            const level = getStatusLevel(rate);
+            const emoji = getStatusEmoji(level);
+            return (
+              <a
+                href={`/sites/${report.slug}`}
+                class="flex items-center gap-4 p-4 hover:bg-slate-50 transition-colors"
+              >
+                <span class="text-lg">{emoji}</span>
+                <span class="font-medium text-slate-900 flex-1 truncate">{report.name}</span>
+                <div class="flex items-center gap-3">
+                  <div class="w-20 bg-slate-100 rounded-full h-2">
+                    <div
+                      class:list={[
+                        'h-2 rounded-full transition-all',
+                        level === 'green' ? 'bg-green-500' : level === 'yellow' ? 'bg-yellow-500' : 'bg-red-500',
+                      ]}
+                      style={`width: ${rate}%`}
+                    />
+                  </div>
+                  <span class:list={[
+                    'text-sm font-semibold w-10 text-right',
+                    level === 'green' ? 'text-green-600' : level === 'yellow' ? 'text-yellow-600' : 'text-red-600',
+                  ]}>
+                    {rate}%
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </section>
-  )}
+  </div>
 </DashboardLayout>
+
+<script>
+  const tabs = document.querySelectorAll('.score-tab');
+  const contents = document.querySelectorAll('.score-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+
+      tabs.forEach(t => {
+        t.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+        t.classList.add('text-slate-600', 'hover:text-slate-900');
+      });
+      tab.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+      tab.classList.remove('text-slate-600', 'hover:text-slate-900');
+
+      contents.forEach(c => c.classList.add('hidden'));
+      document.getElementById(`tab-${target}`)?.classList.remove('hidden');
+    });
+  });
+</script>
