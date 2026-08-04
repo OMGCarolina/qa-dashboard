@@ -33,5 +33,12 @@
     "url": "https://explorenirvana.com",
     "description": "Dispensario de cannabis en NJ (Mount Laurel)",
     "addedAt": "2026-08-04T17:59:00.000Z"
+  },
+  {
+    "slug": "test-site",
+    "name": "Test Site",
+    "url": "https://test.com",
+    "description": "Test",
+    "addedAt": "2026-08-04T20:33:39.330Z"
   }
 ]
