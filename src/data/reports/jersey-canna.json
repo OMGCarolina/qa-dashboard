@@ -1,61 +1,57 @@
 {
   "slug": "jersey-canna",
-  "lastRun": "2026-08-07T21:22:21.534Z",
-  "duration": 5903,
+  "lastRun": "2026-08-07T21:31:50.203Z",
+  "duration": 6843,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1343
+      "duration": 1201
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 735
+      "duration": 710
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 335
+      "duration": 468
     },
     {
       "name": "Meta description presente",
-      "status": "fail",
-      "duration": 330,
-      "error": "Meta description no encontrada"
+      "status": "pass",
+      "duration": 452
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "fail",
-      "duration": 334,
-      "error": "Faltan: og:title, og:description, og:image"
-    },
-    {
-      "name": "SSL / HTTPS funciona",
-      "status": "pass",
-      "duration": 332
-    },
-    {
-      "name": "Sitemap XML accesible",
-      "status": "fail",
-      "duration": 511,
-      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
-    },
-    {
-      "name": "robots.txt configurado",
-      "status": "pass",
-      "duration": 529
-    },
-    {
-      "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
       "duration": 463
     },
     {
+      "name": "SSL / HTTPS funciona",
+      "status": "pass",
+      "duration": 449
+    },
+    {
+      "name": "Sitemap XML accesible",
+      "status": "pass",
+      "duration": 1006
+    },
+    {
+      "name": "robots.txt configurado",
+      "status": "pass",
+      "duration": 522
+    },
+    {
+      "name": "URL raíz sin redirección innecesaria",
+      "status": "pass",
+      "duration": 449
+    },
+    {
       "name": "Meta viewport presente (responsive)",
-      "status": "fail",
-      "duration": 329,
-      "error": "Meta viewport no encontrado"
+      "status": "pass",
+      "duration": 462
     },
     {
       "name": "Etiqueta H1 presente",
@@ -65,7 +61,7 @@
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 332
+      "duration": 331
     }
   ]
 }

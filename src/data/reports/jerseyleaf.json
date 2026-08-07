@@ -1,53 +1,52 @@
 {
   "slug": "jerseyleaf",
-  "lastRun": "2026-08-07T21:22:28.183Z",
-  "duration": 6607,
+  "lastRun": "2026-08-07T21:31:56.997Z",
+  "duration": 6747,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1311
+      "duration": 1262
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 844
+      "duration": 779
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 342
+      "duration": 466
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 328
+      "duration": 439
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 327
+      "duration": 452
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 321
+      "duration": 434
     },
     {
       "name": "Sitemap XML accesible",
-      "status": "fail",
-      "duration": 1110,
-      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+      "status": "pass",
+      "duration": 1017
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 492
+      "duration": 488
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 456
+      "duration": 449
     },
     {
       "name": "Meta viewport presente (responsive)",
@@ -57,13 +56,13 @@
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 441,
+      "duration": 319,
       "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 314
+      "duration": 321
     }
   ]
 }

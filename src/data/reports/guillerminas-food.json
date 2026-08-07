@@ -1,72 +1,69 @@
 {
   "slug": "guillerminas-food",
-  "lastRun": "2026-08-07T21:23:32.316Z",
-  "duration": 6765,
+  "lastRun": "2026-08-07T21:33:02.098Z",
+  "duration": 5329,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1236
+      "duration": 1074
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 439
+      "duration": 442
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 335
+      "duration": 330
     },
     {
       "name": "Meta description presente",
-      "status": "fail",
-      "duration": 342,
-      "error": "Meta description no encontrada"
+      "status": "pass",
+      "duration": 328
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "fail",
-      "duration": 325,
-      "error": "Faltan: og:title, og:description, og:image"
+      "status": "pass",
+      "duration": 329
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 321
+      "duration": 327
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 1871,
+      "duration": 573,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 485
+      "duration": 483
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 444
+      "duration": 447
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "fail",
-      "duration": 322,
-      "error": "Meta viewport no encontrado"
+      "status": "pass",
+      "duration": 329
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 322,
+      "duration": 324,
       "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 323
+      "duration": 343
     }
   ]
 }

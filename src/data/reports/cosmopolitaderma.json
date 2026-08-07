@@ -1,68 +1,67 @@
 {
   "slug": "cosmopolitaderma",
-  "lastRun": "2026-08-07T21:22:51.042Z",
-  "duration": 22817,
+  "lastRun": "2026-08-07T21:32:20.780Z",
+  "duration": 23741,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 2763
+      "duration": 2748
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 2216
+      "duration": 2231
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 1953
+      "duration": 1938
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 1949
+      "duration": 1977
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 1927
+      "duration": 1936
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 2198
+      "duration": 1939
     },
     {
       "name": "Sitemap XML accesible",
-      "status": "fail",
-      "duration": 1170,
-      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+      "status": "pass",
+      "duration": 2378
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 868
+      "duration": 850
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 1967
+      "duration": 1964
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 1950
+      "duration": 1931
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 1926
+      "duration": 1930
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 1930
+      "duration": 1919
     }
   ]
 }

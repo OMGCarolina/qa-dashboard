@@ -1,71 +1,68 @@
 {
   "slug": "rush-budz",
-  "lastRun": "2026-08-07T21:23:19.003Z",
-  "duration": 6240,
+  "lastRun": "2026-08-07T21:32:49.498Z",
+  "duration": 6343,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1371
+      "duration": 1301
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 728
+      "duration": 387
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 332
+      "duration": 727
     },
     {
       "name": "Meta description presente",
-      "status": "fail",
-      "duration": 451,
-      "error": "Meta description no encontrada"
+      "status": "pass",
+      "duration": 413
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "fail",
-      "duration": 435,
-      "error": "Faltan: og:title, og:description, og:image"
+      "status": "pass",
+      "duration": 305
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 447
+      "duration": 300
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 567,
+      "duration": 790,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 503
+      "duration": 530
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 451
+      "duration": 409
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "fail",
-      "duration": 320,
-      "error": "Meta viewport no encontrado"
+      "status": "pass",
+      "duration": 455
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 318
+      "duration": 425
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 317
+      "duration": 301
     }
   ]
 }

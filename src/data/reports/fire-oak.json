@@ -1,48 +1,47 @@
 {
   "slug": "fire-oak",
-  "lastRun": "2026-08-07T21:23:12.723Z",
-  "duration": 12998,
+  "lastRun": "2026-08-07T21:32:43.111Z",
+  "duration": 13570,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1870
+      "duration": 1827
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 1367
+      "duration": 1348
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 1078
+      "duration": 1072
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 1067
+      "duration": 1073
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 1067
+      "duration": 1071
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 1072
+      "duration": 1071
     },
     {
       "name": "Sitemap XML accesible",
-      "status": "fail",
-      "duration": 635,
-      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+      "status": "pass",
+      "duration": 1268
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 560
+      "duration": 556
     },
     {
       "name": "URL raíz sin redirección innecesaria",
@@ -52,18 +51,18 @@
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 1072
+      "duration": 1075
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 1068,
+      "duration": 1069,
       "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 1068
+      "duration": 1066
     }
   ]
 }

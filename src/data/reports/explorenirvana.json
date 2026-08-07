@@ -1,72 +1,69 @@
 {
   "slug": "explorenirvana",
-  "lastRun": "2026-08-07T21:22:59.681Z",
-  "duration": 5977,
+  "lastRun": "2026-08-07T21:32:29.493Z",
+  "duration": 6251,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1339
+      "duration": 1095
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 454
+      "duration": 781
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 706
+      "duration": 386
     },
     {
       "name": "Meta description presente",
-      "status": "fail",
-      "duration": 452,
-      "error": "Meta description no encontrada"
+      "status": "pass",
+      "duration": 310
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 447,
-      "error": "Faltan: og:title, og:description, og:image"
+      "duration": 442,
+      "error": "Faltan: og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 444
+      "duration": 443
     },
     {
       "name": "Sitemap XML accesible",
-      "status": "fail",
-      "duration": 492,
-      "error": "No encontrado (sitemap: 301, wp-sitemap: 301)"
+      "status": "pass",
+      "duration": 1026
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 276
+      "duration": 265
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 402
+      "duration": 442
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "fail",
-      "duration": 320,
-      "error": "Meta viewport no encontrado"
+      "status": "pass",
+      "duration": 312
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 325,
+      "duration": 440,
       "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 320
+      "duration": 309
     }
   ]
 }

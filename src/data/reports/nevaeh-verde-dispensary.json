@@ -1,71 +1,68 @@
 {
   "slug": "nevaeh-verde-dispensary",
-  "lastRun": "2026-08-07T21:23:25.512Z",
-  "duration": 6469,
+  "lastRun": "2026-08-07T21:32:56.729Z",
+  "duration": 7190,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1433
+      "duration": 1338
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 882
+      "duration": 817
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 598
+      "duration": 580
     },
     {
       "name": "Meta description presente",
-      "status": "fail",
-      "duration": 347,
-      "error": "Meta description no encontrada"
+      "status": "pass",
+      "duration": 510
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "fail",
-      "duration": 337,
-      "error": "Faltan: og:title, og:description, og:image"
+      "status": "pass",
+      "duration": 570
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 330
+      "duration": 529
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 583,
+      "duration": 565,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 532
+      "duration": 533
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 442
+      "duration": 540
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "fail",
-      "duration": 329,
-      "error": "Meta viewport no encontrado"
+      "status": "pass",
+      "duration": 561
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 326
+      "duration": 320
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 330
+      "duration": 327
     }
   ]
 }
