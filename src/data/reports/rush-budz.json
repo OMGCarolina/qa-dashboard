@@ -1,71 +1,71 @@
 {
   "slug": "rush-budz",
-  "lastRun": "2026-08-04T21:42:52.098Z",
-  "duration": 7450,
+  "lastRun": "2026-08-07T21:23:19.003Z",
+  "duration": 6240,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1354
+      "duration": 1371
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 730
+      "duration": 728
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 338
+      "duration": 332
     },
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 324,
+      "duration": 451,
       "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 429,
+      "duration": 435,
       "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 437
+      "duration": 447
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 1984,
+      "duration": 567,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 507
+      "duration": 503
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 415
+      "duration": 451
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 310,
+      "duration": 320,
       "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 313
+      "duration": 318
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 309
+      "duration": 317
     }
   ]
 }

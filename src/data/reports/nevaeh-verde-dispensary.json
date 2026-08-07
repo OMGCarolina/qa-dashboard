@@ -1,71 +1,71 @@
 {
   "slug": "nevaeh-verde-dispensary",
-  "lastRun": "2026-08-04T21:43:00.358Z",
-  "duration": 8220,
+  "lastRun": "2026-08-07T21:23:25.512Z",
+  "duration": 6469,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1501
+      "duration": 1433
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 864
+      "duration": 882
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 589
+      "duration": 598
     },
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 547,
+      "duration": 347,
       "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 579,
+      "duration": 337,
       "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 548
+      "duration": 330
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 1388,
+      "duration": 583,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 608
+      "duration": 532
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 590
+      "duration": 442
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 338,
+      "duration": 329,
       "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 341
+      "duration": 326
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 327
+      "duration": 330
     }
   ]
 }

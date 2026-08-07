@@ -1,72 +1,72 @@
 {
   "slug": "guillerminas-food",
-  "lastRun": "2026-08-04T21:43:08.113Z",
-  "duration": 7714,
+  "lastRun": "2026-08-07T21:23:32.316Z",
+  "duration": 6765,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1050
+      "duration": 1236
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 684
+      "duration": 439
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 459
+      "duration": 335
     },
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 432,
+      "duration": 342,
       "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 446,
+      "duration": 325,
       "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 434
+      "duration": 321
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 2080,
+      "duration": 1871,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 480
+      "duration": 485
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 446
+      "duration": 444
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 434,
+      "duration": 322,
       "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "fail",
-      "duration": 447,
+      "duration": 322,
       "error": "No se encontró H1"
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 322
+      "duration": 323
     }
   ]
 }
