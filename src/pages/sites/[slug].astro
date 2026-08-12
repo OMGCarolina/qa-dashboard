@@ -61,6 +61,24 @@ const passRate = getPassRate(report);
         </div>
       </div>
 
+      {report.insights && report.insights.length > 0 && (
+        <div class="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg">💡</span>
+            <h2 class="text-base font-semibold text-amber-900">Sugerencias de ADA</h2>
+            <span class="text-xs text-amber-700/70 font-normal">— para este sitio</span>
+          </div>
+          <ul class="space-y-2">
+            {report.insights.map(ins => (
+              <li class="flex items-start gap-2 text-sm">
+                <span>{ins.level === 'warning' ? '⚠️' : 'ℹ️'}</span>
+                <span class="text-slate-700">{ins.message}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div class="flex items-center justify-between mb-4">
         <h2 class="text-lg font-semibold text-slate-900">Tests ejecutados</h2>
         <span class="text-sm text-slate-500">

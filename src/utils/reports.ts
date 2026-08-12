@@ -16,6 +16,11 @@ export interface TestResult {
   error?: string;
 }
 
+export interface Insight {
+  level: 'info' | 'warning';
+  message: string;
+}
+
 export interface SiteReport {
   slug: string;
   name: string;
@@ -25,6 +30,7 @@ export interface SiteReport {
   lastRun: string | null;
   duration: number;
   tests: TestResult[];
+  insights: Insight[];
   hasReport: boolean;
 }
 
@@ -51,6 +57,7 @@ interface ReportData {
   lastRun: string;
   duration: number;
   tests: TestResult[];
+  insights?: Insight[];
 }
 
 const allSites: SiteEntry[] = sitesData as SiteEntry[];
@@ -74,7 +81,7 @@ function mergeData(): SiteReport[] {
   return allSites.map(site => {
     const report = reportsMap.get(site.slug);
     if (report) {
-      return { slug: site.slug, name: site.name, url: site.url, description: site.description, addedAt: site.addedAt, lastRun: report.lastRun, duration: report.duration, tests: report.tests, hasReport: true };
+      return { slug: site.slug, name: site.name, url: site.url, description: site.description, addedAt: site.addedAt, lastRun: report.lastRun, duration: report.duration, tests: report.tests, insights: report.insights || [], hasReport: true };
     }
     return { slug: site.slug, name: site.name, url: site.url, description: site.description, addedAt: site.addedAt, lastRun: null, duration: 0, tests: [], hasReport: false };
   });
