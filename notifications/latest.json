@@ -1,0 +1,181 @@
+{
+  "generatedAt": "2026-08-12T21:26:46.960Z",
+  "totalSites": 9,
+  "sitesWithIssues": 5,
+  "sites": [
+    {
+      "slug": "jersey-canna",
+      "name": "Jersey Canna",
+      "url": "https://jersey-canna.com",
+      "passRate": 100,
+      "status": "green",
+      "failingTests": [],
+      "insights": []
+    },
+    {
+      "slug": "jerseyleaf",
+      "name": "Jersey Leaf",
+      "url": "https://jerseyleaf.net",
+      "passRate": 100,
+      "status": "green",
+      "failingTests": [],
+      "insights": []
+    },
+    {
+      "slug": "cosmopolitaderma",
+      "name": "Cosmopolita Derma",
+      "url": "https://cosmopolitaderma.com",
+      "passRate": 100,
+      "status": "green",
+      "failingTests": [],
+      "insights": []
+    },
+    {
+      "slug": "montessoriminds",
+      "name": "Montessori Minds",
+      "url": "https://montessoriminds.org",
+      "passRate": 83,
+      "status": "green",
+      "failingTests": [
+        {
+          "name": "Open Graph tags presentes",
+          "error": "Faltan: og:image"
+        },
+        {
+          "name": "Charset UTF-8 configurado",
+          "error": "No se detectó charset UTF-8"
+        }
+      ],
+      "insights": [
+        {
+          "level": "warning",
+          "message": "El título tiene 64 caracteres (recomendado ≤ 60). Podría truncarse en Google."
+        },
+        {
+          "level": "warning",
+          "message": "La meta description tiene 165 caracteres (recomendado ≤ 160). Se truncaría en Google."
+        }
+      ]
+    },
+    {
+      "slug": "explorenirvana",
+      "name": "Explore Nirvana",
+      "url": "https://explorenirvana.com",
+      "passRate": 92,
+      "status": "green",
+      "failingTests": [
+        {
+          "name": "Open Graph tags presentes",
+          "error": "Faltan: og:image"
+        }
+      ],
+      "insights": []
+    },
+    {
+      "slug": "fire-oak",
+      "name": "Fire & Oak",
+      "url": "https://faomtholly.com",
+      "passRate": 100,
+      "status": "green",
+      "failingTests": [],
+      "insights": []
+    },
+    {
+      "slug": "rush-budz",
+      "name": "Rush Budz",
+      "url": "https://rushbudz.com/",
+      "passRate": 92,
+      "status": "green",
+      "failingTests": [
+        {
+          "name": "Sitemap XML accesible",
+          "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
+        }
+      ],
+      "insights": []
+    },
+    {
+      "slug": "nevaeh-verde-dispensary",
+      "name": "Nevaeh Verde Dispensary",
+      "url": "https://bellevillenewarkdispensary.com/",
+      "passRate": 58,
+      "status": "yellow",
+      "failingTests": [
+        {
+          "name": "Homepage responde HTTP 200",
+          "error": "HTTP 302"
+        },
+        {
+          "name": "Meta description presente",
+          "error": "Meta description no encontrada"
+        },
+        {
+          "name": "Open Graph tags presentes",
+          "error": "Faltan: og:title, og:description, og:image"
+        },
+        {
+          "name": "Sitemap XML accesible",
+          "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
+        },
+        {
+          "name": "Meta viewport presente (responsive)",
+          "error": "Meta viewport no encontrado"
+        }
+      ],
+      "insights": [
+        {
+          "level": "info",
+          "message": "El título es muy corto (9 caracteres). Idealmente 30–60."
+        },
+        {
+          "level": "info",
+          "message": "El H1 es muy corto (9 caracteres): “302 Found”."
+        }
+      ]
+    },
+    {
+      "slug": "guillerminas-food",
+      "name": "Guillerminas Food",
+      "url": "https://guillerminasfood.com/",
+      "passRate": 92,
+      "status": "green",
+      "failingTests": [
+        {
+          "name": "Sitemap XML accesible",
+          "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
+        }
+      ],
+      "insights": []
+    }
+  ],
+  "recommendations": [
+    {
+      "site_slug": "montessoriminds",
+      "site_name": "Montessori Minds",
+      "level": "warning",
+      "message": "El título tiene 64 caracteres (recomendado ≤ 60). Podría truncarse en Google.",
+      "tag": "title"
+    },
+    {
+      "site_slug": "montessoriminds",
+      "site_name": "Montessori Minds",
+      "level": "warning",
+      "message": "La meta description tiene 165 caracteres (recomendado ≤ 160). Se truncaría en Google.",
+      "tag": "meta_description"
+    },
+    {
+      "site_slug": "nevaeh-verde-dispensary",
+      "site_name": "Nevaeh Verde Dispensary",
+      "level": "info",
+      "message": "El título es muy corto (9 caracteres). Idealmente 30–60.",
+      "tag": "title"
+    },
+    {
+      "site_slug": "nevaeh-verde-dispensary",
+      "site_name": "Nevaeh Verde Dispensary",
+      "level": "info",
+      "message": "El H1 es muy corto (9 caracteres): “302 Found”.",
+      "tag": "h1"
+    }
+  ]
+}

@@ -1,57 +1,57 @@
 {
   "slug": "jersey-canna",
-  "lastRun": "2026-08-12T21:09:25.306Z",
-  "duration": 6505,
+  "lastRun": "2026-08-12T21:25:41.063Z",
+  "duration": 6498,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1062
+      "duration": 1230
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 708
+      "duration": 740
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 459
+      "duration": 338
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 456
+      "duration": 449
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 325
+      "duration": 466
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 447
+      "duration": 331
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 996
+      "duration": 1002
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 504
+      "duration": 535
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 449
+      "duration": 448
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 449
+      "duration": 317
     },
     {
       "name": "Etiqueta H1 presente",
@@ -61,7 +61,7 @@
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 327
+      "duration": 319
     }
   ],
   "insights": []

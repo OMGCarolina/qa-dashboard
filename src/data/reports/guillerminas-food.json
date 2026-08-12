@@ -1,68 +1,68 @@
 {
   "slug": "guillerminas-food",
-  "lastRun": "2026-08-12T21:10:33.047Z",
-  "duration": 6123,
+  "lastRun": "2026-08-12T21:26:46.946Z",
+  "duration": 5311,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1042
+      "duration": 1211
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 708
+      "duration": 426
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 454
+      "duration": 326
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 455
+      "duration": 320
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 326
+      "duration": 318
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 448
+      "duration": 314
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 785,
+      "duration": 547,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 484
+      "duration": 475
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 449
+      "duration": 431
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 323
+      "duration": 315
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 325
+      "duration": 316
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 324
+      "duration": 312
     }
   ],
   "insights": []

@@ -1,68 +1,68 @@
 {
   "slug": "explorenirvana",
-  "lastRun": "2026-08-12T21:10:03.830Z",
-  "duration": 6881,
+  "lastRun": "2026-08-12T21:26:17.967Z",
+  "duration": 5609,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1099
+      "duration": 1355
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 457
+      "duration": 406
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 749
+      "duration": 331
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 471
+      "duration": 325
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 469,
+      "duration": 323,
       "error": "Faltan: og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 464
+      "duration": 320
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 1031
+      "duration": 989
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 272
+      "duration": 273
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 468
+      "duration": 321
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 469
+      "duration": 321
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 467
+      "duration": 323
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 465
+      "duration": 322
     }
   ],
   "insights": []
