@@ -1,67 +1,68 @@
 {
   "slug": "cosmopolitaderma",
-  "lastRun": "2026-08-07T21:32:20.780Z",
-  "duration": 23741,
+  "lastRun": "2026-08-12T21:09:53.833Z",
+  "duration": 22344,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 2748
+      "duration": 2577
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 2231
+      "duration": 2159
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 1938
+      "duration": 1935
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 1977
+      "duration": 1917
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 1936
+      "duration": 1941
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 1939
+      "duration": 1897
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 2378
+      "duration": 2223
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 850
+      "duration": 122
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 1964
+      "duration": 1909
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 1931
+      "duration": 1896
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 1930
+      "duration": 1877
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 1919
+      "duration": 1891
     }
-  ]
+  ],
+  "insights": []
 }

@@ -1,69 +1,69 @@
 {
   "slug": "guillerminas-food",
-  "lastRun": "2026-08-07T21:33:02.098Z",
-  "duration": 5329,
+  "lastRun": "2026-08-12T21:10:33.047Z",
+  "duration": 6123,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1074
+      "duration": 1042
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 442
+      "duration": 708
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 330
+      "duration": 454
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 328
+      "duration": 455
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 329
+      "duration": 326
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 327
+      "duration": 448
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 573,
+      "duration": 785,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 483
+      "duration": 484
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 447
+      "duration": 449
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 329
+      "duration": 323
     },
     {
       "name": "Etiqueta H1 presente",
-      "status": "fail",
-      "duration": 324,
-      "error": "No se encontró H1"
+      "status": "pass",
+      "duration": 325
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 343
+      "duration": 324
     }
-  ]
+  ],
+  "insights": []
 }

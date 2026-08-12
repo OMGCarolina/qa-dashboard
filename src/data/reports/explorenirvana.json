@@ -1,69 +1,69 @@
 {
   "slug": "explorenirvana",
-  "lastRun": "2026-08-07T21:32:29.493Z",
-  "duration": 6251,
+  "lastRun": "2026-08-12T21:10:03.830Z",
+  "duration": 6881,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1095
+      "duration": 1099
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 781
+      "duration": 457
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 386
+      "duration": 749
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 310
+      "duration": 471
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 442,
+      "duration": 469,
       "error": "Faltan: og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 443
+      "duration": 464
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 1026
+      "duration": 1031
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 265
+      "duration": 272
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 442
+      "duration": 468
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 312
+      "duration": 469
     },
     {
       "name": "Etiqueta H1 presente",
-      "status": "fail",
-      "duration": 440,
-      "error": "No se encontró H1"
+      "status": "pass",
+      "duration": 467
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 309
+      "duration": 465
     }
-  ]
+  ],
+  "insights": []
 }

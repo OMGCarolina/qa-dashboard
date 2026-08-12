@@ -1,47 +1,47 @@
 {
   "slug": "jersey-canna",
-  "lastRun": "2026-08-07T21:31:50.203Z",
-  "duration": 6843,
+  "lastRun": "2026-08-12T21:09:25.306Z",
+  "duration": 6505,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1201
+      "duration": 1062
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 710
+      "duration": 708
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 468
+      "duration": 459
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 452
+      "duration": 456
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 463
+      "duration": 325
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 449
+      "duration": 447
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 1006
+      "duration": 996
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 522
+      "duration": 504
     },
     {
       "name": "URL raíz sin redirección innecesaria",
@@ -51,17 +51,18 @@
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 462
+      "duration": 449
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 330
+      "duration": 323
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 331
+      "duration": 327
     }
-  ]
+  ],
+  "insights": []
 }

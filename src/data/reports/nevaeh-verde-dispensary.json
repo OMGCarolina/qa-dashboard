@@ -1,68 +1,82 @@
 {
   "slug": "nevaeh-verde-dispensary",
-  "lastRun": "2026-08-07T21:32:56.729Z",
-  "duration": 7190,
+  "lastRun": "2026-08-12T21:10:26.885Z",
+  "duration": 3355,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
-      "status": "pass",
-      "duration": 1338
+      "status": "fail",
+      "duration": 379,
+      "error": "HTTP 302"
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 817
+      "duration": 121
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 580
+      "duration": 123
     },
     {
       "name": "Meta description presente",
-      "status": "pass",
-      "duration": 510
+      "status": "fail",
+      "duration": 120,
+      "error": "Meta description no encontrada"
     },
     {
       "name": "Open Graph tags presentes",
-      "status": "pass",
-      "duration": 570
+      "status": "fail",
+      "duration": 120,
+      "error": "Faltan: og:title, og:description, og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 529
+      "duration": 120
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 565,
+      "duration": 1773,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 533
+      "duration": 120
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 540
+      "duration": 119
     },
     {
       "name": "Meta viewport presente (responsive)",
-      "status": "pass",
-      "duration": 561
+      "status": "fail",
+      "duration": 120,
+      "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 320
+      "duration": 120
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 327
+      "duration": 120
+    }
+  ],
+  "insights": [
+    {
+      "level": "info",
+      "message": "El título es muy corto (9 caracteres). Idealmente 30–60."
+    },
+    {
+      "level": "info",
+      "message": "El H1 es muy corto (9 caracteres): “302 Found”."
     }
   ]
 }

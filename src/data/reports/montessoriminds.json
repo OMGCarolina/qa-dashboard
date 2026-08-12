@@ -1,70 +1,79 @@
 {
   "slug": "montessoriminds",
-  "lastRun": "2026-08-07T21:32:23.202Z",
-  "duration": 2381,
+  "lastRun": "2026-08-12T21:09:56.910Z",
+  "duration": 3038,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 536
+      "duration": 424
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 157
+      "duration": 242
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 159
+      "duration": 244
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 159
+      "duration": 251
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 158,
+      "duration": 244,
       "error": "Faltan: og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 158
+      "duration": 239
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 281
+      "duration": 298
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 133
+      "duration": 134
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 157
+      "duration": 241
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 162
+      "duration": 240
     },
     {
       "name": "Etiqueta H1 presente",
-      "status": "fail",
-      "duration": 157,
-      "error": "No se encontró H1"
+      "status": "pass",
+      "duration": 240
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "fail",
-      "duration": 164,
+      "duration": 241,
       "error": "No se detectó charset UTF-8"
+    }
+  ],
+  "insights": [
+    {
+      "level": "warning",
+      "message": "El título tiene 64 caracteres (recomendado ≤ 60). Podría truncarse en Google."
+    },
+    {
+      "level": "warning",
+      "message": "La meta description tiene 165 caracteres (recomendado ≤ 160). Se truncaría en Google."
     }
   ]
 }
