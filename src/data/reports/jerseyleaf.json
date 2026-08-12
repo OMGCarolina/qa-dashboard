@@ -1,67 +1,67 @@
 {
   "slug": "jerseyleaf",
-  "lastRun": "2026-08-12T21:25:47.165Z",
-  "duration": 6059,
+  "lastRun": "2026-08-12T21:28:21.718Z",
+  "duration": 6670,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1239
+      "duration": 1138
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 760
+      "duration": 791
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 315
+      "duration": 446
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 310
+      "duration": 439
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 309
+      "duration": 314
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 307
+      "duration": 439
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 976
+      "duration": 991
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 510
+      "duration": 489
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 411
+      "duration": 439
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 309
+      "duration": 436
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 307
+      "duration": 310
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 306
+      "duration": 438
     }
   ],
   "insights": []

@@ -1,67 +1,67 @@
 {
   "slug": "fire-oak",
-  "lastRun": "2026-08-12T21:26:31.994Z",
-  "duration": 13986,
+  "lastRun": "2026-08-12T21:29:05.644Z",
+  "duration": 13405,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1989
+      "duration": 1689
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 1098
+      "duration": 1080
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 1363
+      "duration": 1078
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 1108
+      "duration": 1075
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 1092
+      "duration": 1073
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 1093
+      "duration": 1094
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 1316
+      "duration": 1413
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 561
+      "duration": 567
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 1090
+      "duration": 1087
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 1091
+      "duration": 1082
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 1091
+      "duration": 1077
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 1094
+      "duration": 1090
     }
   ],
   "insights": []

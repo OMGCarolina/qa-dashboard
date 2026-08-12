@@ -1,68 +1,68 @@
 {
   "slug": "rush-budz",
-  "lastRun": "2026-08-12T21:26:37.900Z",
-  "duration": 5867,
+  "lastRun": "2026-08-12T21:29:11.753Z",
+  "duration": 6070,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1435
+      "duration": 1200
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 701
+      "duration": 729
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 324
+      "duration": 459
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 319
+      "duration": 452
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 318
+      "duration": 449
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 314
+      "duration": 322
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 543,
+      "duration": 555,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 541
+      "duration": 534
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 424
+      "duration": 413
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 318
+      "duration": 319
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 315
+      "duration": 322
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 315
+      "duration": 316
     }
   ],
   "insights": []
