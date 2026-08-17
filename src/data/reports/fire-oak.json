@@ -1,52 +1,52 @@
 {
   "slug": "fire-oak",
-  "lastRun": "2026-08-12T21:29:05.644Z",
-  "duration": 13405,
+  "lastRun": "2026-08-17T13:43:30.107Z",
+  "duration": 13663,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 1689
+      "duration": 1913
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 1080
+      "duration": 1332
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 1078
+      "duration": 1071
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 1075
+      "duration": 1073
     },
     {
       "name": "Open Graph tags presentes",
       "status": "pass",
-      "duration": 1073
+      "duration": 1071
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 1094
+      "duration": 1074
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 1413
+      "duration": 1272
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 567
+      "duration": 562
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 1087
+      "duration": 1072
     },
     {
       "name": "Meta viewport presente (responsive)",
@@ -56,12 +56,12 @@
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 1077
+      "duration": 1071
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 1090
+      "duration": 1070
     }
   ],
   "insights": []

@@ -1,4 +1,4 @@
-# 🤖 QA Semanal — ADA (2026-08-12)
+# 🤖 QA Semanal — ADA (2026-08-17)
 
 **Resumen:** 9 sitios — 4 en orden, 5 con algo por revisar.
 

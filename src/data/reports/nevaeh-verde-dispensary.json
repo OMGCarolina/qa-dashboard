@@ -1,12 +1,12 @@
 {
   "slug": "nevaeh-verde-dispensary",
-  "lastRun": "2026-08-12T21:29:14.726Z",
-  "duration": 2930,
+  "lastRun": "2026-08-17T13:43:41.504Z",
+  "duration": 3615,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "fail",
-      "duration": 373,
+      "duration": 536,
       "error": "HTTP 302"
     },
     {
@@ -22,7 +22,7 @@
     {
       "name": "Meta description presente",
       "status": "fail",
-      "duration": 118,
+      "duration": 117,
       "error": "Meta description no encontrada"
     },
     {
@@ -34,12 +34,12 @@
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 117
+      "duration": 123
     },
     {
       "name": "Sitemap XML accesible",
       "status": "fail",
-      "duration": 1383,
+      "duration": 1901,
       "error": "No encontrado (sitemap: 404, wp-sitemap: 404)"
     },
     {
@@ -50,23 +50,23 @@
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 117
+      "duration": 118
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "fail",
-      "duration": 118,
+      "duration": 116,
       "error": "Meta viewport no encontrado"
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 117
+      "duration": 118
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "pass",
-      "duration": 117
+      "duration": 116
     }
   ],
   "insights": [

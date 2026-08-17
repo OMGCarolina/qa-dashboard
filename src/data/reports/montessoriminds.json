@@ -1,68 +1,68 @@
 {
   "slug": "montessoriminds",
-  "lastRun": "2026-08-12T21:28:46.334Z",
-  "duration": 2266,
+  "lastRun": "2026-08-17T13:43:10.698Z",
+  "duration": 2649,
   "tests": [
     {
       "name": "Homepage responde HTTP 200",
       "status": "pass",
-      "duration": 418
+      "duration": 690
     },
     {
       "name": "Tiempo de carga < 3 segundos",
       "status": "pass",
-      "duration": 158
+      "duration": 155
     },
     {
       "name": "Título de página presente",
       "status": "pass",
-      "duration": 165
+      "duration": 157
     },
     {
       "name": "Meta description presente",
       "status": "pass",
-      "duration": 160
+      "duration": 159
     },
     {
       "name": "Open Graph tags presentes",
       "status": "fail",
-      "duration": 157,
+      "duration": 154,
       "error": "Faltan: og:image"
     },
     {
       "name": "SSL / HTTPS funciona",
       "status": "pass",
-      "duration": 163
+      "duration": 158
     },
     {
       "name": "Sitemap XML accesible",
       "status": "pass",
-      "duration": 281
+      "duration": 408
     },
     {
       "name": "robots.txt configurado",
       "status": "pass",
-      "duration": 133
+      "duration": 130
     },
     {
       "name": "URL raíz sin redirección innecesaria",
       "status": "pass",
-      "duration": 157
+      "duration": 164
     },
     {
       "name": "Meta viewport presente (responsive)",
       "status": "pass",
-      "duration": 157
+      "duration": 156
     },
     {
       "name": "Etiqueta H1 presente",
       "status": "pass",
-      "duration": 159
+      "duration": 156
     },
     {
       "name": "Charset UTF-8 configurado",
       "status": "fail",
-      "duration": 158,
+      "duration": 162,
       "error": "No se detectó charset UTF-8"
     }
   ],
